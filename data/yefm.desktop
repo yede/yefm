@@ -1,0 +1,19 @@
+[Desktop Entry]
+Name=YeFM
+Name[zh_TW]=YeFM
+Name[zh_CN]=YeFM
+
+GenericName=YeFM File Manager
+GenericName[zh_TW]=YeFM檔案管理員
+GenericName[zh_TW]=YeFM文件管理器
+
+Comment=Simple 2 pane file manager based on pure Qt
+Comment[zh_TW]=簡潔雙面板檔案管理員(純Qt)
+Comment[zh_TW]=简洁双面板文件管理器(纯Qt)
+
+Type=Application
+Icon=yefm
+Exec=yefm
+Terminal=false
+MimeType=application/x-directory;inode/directory;
+Categories=System;FileTools;Utility;Qt;FileManager;
