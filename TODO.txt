@@ -1,0 +1,8 @@
+
+file searching
+history navigation
+root permission handling
+path map (something like mind map to better organise bookmarks)
+dnd inquiry
+command box
+script dialog
