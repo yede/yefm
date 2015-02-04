@@ -51,6 +51,7 @@ protected:
 	void contextMenuEvent(QContextMenuEvent *event);
 	bool viewportEvent(QEvent *event);
 	void mouseMoveEvent(QMouseEvent *event);
+	void wheelEvent(QWheelEvent *event);
 
 //	void dragEnterEvent(QDragEnterEvent *event);
 //	void dragLeaveEvent(QDragLeaveEvent *event);

@@ -217,6 +217,15 @@ void FsListView::mouseMoveEvent(QMouseEvent *event)
 	}
 }
 
+void FsListView::wheelEvent(QWheelEvent *event)
+{
+	QScrollBar *scroll = horizontalScrollBar();
+	if (scroll) {
+		QApplication::sendEvent(scroll, event);
+		event->accept();
+	}
+}
+
 void FsListView::keyPressEvent(QKeyEvent *event)
 {
 	m_handler->handleKeyPress(event);
