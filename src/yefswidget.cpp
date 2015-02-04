@@ -2,6 +2,7 @@
 #include <QStackedLayout>
 #include <QClipboard>
 #include <QFileInfo>
+#include <QProcess>
 #include <QDebug>
 
 #include "yefilepane.h"
@@ -528,6 +529,12 @@ void FsWidget::handleNewFolder()
 
 void FsWidget::handleRun()
 {
+	QFileInfo info;
+	if (getCurrentFileInfo(info) && info.isExecutable()) {
+		QString cmd = info.fileName();
+		QStringList args;
+		QProcess::startDetached(cmd, args, m_workPath);
+	}
 }
 
 void FsWidget::handleCut()        { m_model->handleCut(); }
