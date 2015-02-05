@@ -94,7 +94,10 @@ HEADERS += \
     src/yesidesysview.h \
 	src/yemount.h \
 	src/yesidemntmodel.h \
-	src/yesidecmdmodel.h
+	src/yesidecmdmodel.h \
+    src/yemimeitem.h \
+    src/yemimemodel.h \
+    src/yemimeview.h
 
 SOURCES += \
 	src/yemain.cpp \
@@ -145,7 +148,10 @@ SOURCES += \
     src/yesidesysview.cpp \
 	src/yemount.cpp \
 	src/yesidemntmodel.cpp \
-	src/yesidecmdmodel.cpp
+	src/yesidecmdmodel.cpp \
+    src/yemimeitem.cpp \
+    src/yemimemodel.cpp \
+    src/yemimeview.cpp
 
 HEADERS += \
 #	src/mime-type/mime-type.h \

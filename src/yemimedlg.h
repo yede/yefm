@@ -11,6 +11,7 @@
 
 class YeApplication;
 class MimeSettings;
+class Splitter;
 
 typedef void (*MimeThreadFunc) (void *arg);
 //==============================================================================================================================
@@ -63,18 +64,18 @@ protected slots:
 protected:
 	YeApplication    *m_app;
 	int               m_mode;
-	int               m_appWidth;
+	int               m_sideWidth;
 	int               m_width, m_height;
 	bool              m_loaded;
 	bool              m_busy;
 	MimeSettings     *m_mimeSettings;
-	QWidget          *m_appWidget;
-	QTreeWidget      *m_appTree;
+	QWidget          *m_sideWidget;
+	Splitter         *m_splitter;
+	QTreeWidget      *m_sideTree;
 	QDialogButtonBox *m_buttons;
-	QLabel           *m_edtLabel;
-	QLineEdit        *m_edtCommand;
+	QLabel           *m_guideLabel;
+	QLineEdit        *m_edSelApp;
 	QLabel           *m_titleLabel;
-	QIcon             m_defaultIcon;
 	QMap<QString, QStringList>      m_catNames;
 	QMap<QString, QTreeWidgetItem*> m_categories;
 	QMap<QString, QTreeWidgetItem*> m_applications;

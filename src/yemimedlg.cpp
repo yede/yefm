@@ -12,6 +12,12 @@
 #include "yemimesettings.h"
 #include "yefileutils.h"
 #include "yesplitter.h"
+
+#include "yemainwindow.h"
+#include "yeapplication.h"
+#include "yeappresources.h"
+#include "yeappdata.h"
+#include "yeapp.h"
 //==============================================================================================================================
 
 #define DEF_W 800
@@ -26,34 +32,41 @@ MimeDlg::MimeDlg(YeApplication *app, QWidget *parent)
 	: QDialog(parent)
 	, m_app(app)
 	, m_mode(MimeDlgMode::None)
-	, m_appWidth(MIN_W)
+	, m_sideWidth(MIN_W)
 	, m_width(DEF_W)
 	, m_height(MIN_H)
 	, m_loaded(false)
 	, m_busy(false)
 	, m_mimeSettings(NULL)
 {
-	m_appWidget = createAppTree();
+	m_sideWidget = createAppTree();
 	m_mimeSettings = new MimeSettings(m_app);
 
-	Splitter *splitter = new Splitter;
-	splitter->setDirection(SplitterDirection::Left, 220);
-	splitter->setClient(m_appWidget, m_mimeSettings);
+	m_splitter = new Splitter;
+	m_splitter->setDirection(SplitterDirection::Left, m_sideWidth);
+	m_splitter->setClient(m_sideWidget, m_mimeSettings);
 
+	m_guideLabel = new QLabel(tr("Double click to add into associated applications."));
 	m_buttons = new QDialogButtonBox;
 	m_buttons->setStandardButtons(QDialogButtonBox::Ok | QDialogButtonBox::Cancel);
 	connect(m_buttons, SIGNAL(accepted()), this, SLOT(accept()));
 	connect(m_buttons, SIGNAL(rejected()), this, SLOT(reject()));
 
+	QHBoxLayout *hbox = new QHBoxLayout;
+	hbox->setContentsMargins(0, 0, 0, 0);
+	hbox->setSpacing(4);
+	hbox->addWidget(m_guideLabel);
+	hbox->addWidget(m_buttons);
+
 	QVBoxLayout *box = new QVBoxLayout(this);
 	box->setContentsMargins(6, 6, 6, 6);
 	box->setSpacing(6);
-	box->addWidget(splitter);
-	box->addWidget(m_buttons);
+	box->addWidget(m_splitter);
+	box->addLayout(hbox);
 
 	setMinimumSize(MIN_W, MIN_H);
 
-	connect(m_appTree, SIGNAL(itemDoubleClicked(QTreeWidgetItem*,int)),
+	connect(m_sideTree, SIGNAL(itemDoubleClicked(QTreeWidgetItem*,int)),
 			this, SLOT(onAppItemDoubleClicked(QTreeWidgetItem*,int)));
 	connect(&m_thread, SIGNAL(loadFinished()), this, SLOT(onLoadFinished()));
 }
@@ -65,12 +78,12 @@ void MimeDlg::closeEvent(QCloseEvent *event)
 		return;
 	}
 
-	if (m_mode == MimeDlgMode::EditMimes) m_width = width();
-	m_height = height();
-	m_appWidth = m_appWidget->width();
-
-	if (m_width <= m_appWidth)
-		m_width = m_appWidth + 160;
+	m_sideWidth = m_sideWidget->width();
+	if (!isMaximized()) {
+		m_height = height();
+		if (m_mode == MimeDlgMode::EditMimes) m_width = width();
+		if (m_width <= m_sideWidth) m_width = m_sideWidth + 160;
+	}
 
 	event->accept();
 }
@@ -78,7 +91,7 @@ void MimeDlg::closeEvent(QCloseEvent *event)
 void MimeDlg::accept()
 {
 	if (m_mode == MimeDlgMode::EditMimes) {
-		if (m_mimeSettings->save()) this->done(1);
+		if (m_mimeSettings->saveMimes()) this->done(1);
 	} else {
 		QDialog::accept();
 	}
@@ -87,19 +100,19 @@ void MimeDlg::accept()
 
 bool MimeDlg::showDialog(QString &resultApp, const QString &mimeType)
 {
-	setWindowTitle(tr("Select application"));
+	setWindowTitle(tr("Select an application"));
 	m_mode = MimeDlgMode::SeleApp;
 
-	m_titleLabel->setText(tr("For mime-type: %1").arg(mimeType));
-	m_edtLabel->setText(tr("Launcher: "));
-	m_edtCommand->setVisible(true);
+	m_titleLabel->setText(tr("Launcher for mime-type: %1").arg(mimeType));
+	m_edSelApp->setVisible(true);
+	m_guideLabel->setVisible(false);
 	m_mimeSettings->setVisible(false);
-	resize(m_appWidth, m_height);
+	if (!isMaximized()) resize(m_sideWidth, m_height);
 
 	bool ok = exec() == QDialog::Accepted;
 
 	if (ok) {
-		QString app = m_edtCommand->text();
+		QString app = m_edSelApp->text();
 		ok = !app.isEmpty();
 		if (ok) resultApp = app + ".desktop";
 	}
@@ -113,10 +126,11 @@ void MimeDlg::showDialog()
 	m_mode = MimeDlgMode::EditMimes;
 
 	m_titleLabel->setText(tr("Available applications"));
-	m_edtLabel->setText(tr("Double click to add application."));
-	m_edtCommand->setVisible(false);
+	m_edSelApp->setVisible(false);
+	m_guideLabel->setVisible(true);
 	m_mimeSettings->setVisible(true);
-	resize(m_width, m_height);
+	m_splitter->setSideSize(m_sideWidth);
+	if (!isMaximized()) resize(m_width, m_height);
 
 	bool ok = exec() == QDialog::Accepted;
 
@@ -129,38 +143,31 @@ void MimeDlg::showEvent(QShowEvent *event)
 {
 	Q_UNUSED(event);
 
-	QTimer::singleShot(200, this, SLOT(loadItems()));
+	QTimer::singleShot(60, this, SLOT(loadItems()));
 }
 //==============================================================================================================================
 
 QWidget *MimeDlg::createAppTree()
 {
-	m_titleLabel = new QLabel;
 
 	// Creates app list view
-	m_appTree = new QTreeWidget;
-	m_appTree->setIconSize(QSize(16, 16));
-	m_appTree->setAlternatingRowColors(true);
-	m_appTree->headerItem()->setText(0, tr("Application"));
+	m_sideTree = new QTreeWidget;
+	m_sideTree->setIconSize(QSize(16, 16));
+	m_sideTree->setAlternatingRowColors(true);
+	m_sideTree->headerItem()->setText(0, tr("Application"));
 
 	// Command bar
-	m_edtLabel = new QLabel;
-	m_edtCommand = new QLineEdit;
-	m_edtCommand->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
-
-	QHBoxLayout *hbox = new QHBoxLayout;
-	hbox->setContentsMargins(0, 0, 0, 0);
-	hbox->setSpacing(4);
-	hbox->addWidget(m_edtLabel);
-	hbox->addWidget(m_edtCommand);
+	m_titleLabel = new QLabel;
+	m_edSelApp = new QLineEdit;
+	m_edSelApp->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
 
 	QWidget *widget = new QWidget;
 	QVBoxLayout *box = new QVBoxLayout(widget);
 	box->setContentsMargins(0, 0, 0, 0);
 	box->setSpacing(4);
 	box->addWidget(m_titleLabel);
-	box->addWidget(m_appTree);
-	box->addLayout(hbox);
+	box->addWidget(m_edSelApp);
+	box->addWidget(m_sideTree);
 
 	// Synonyms for cathegory names
 	m_catNames.clear();
@@ -174,17 +181,14 @@ QWidget *MimeDlg::createAppTree()
 	m_catNames.insert("Settings", QStringList() << "System");
 	m_catNames.insert("Utilities", QStringList() << "Utility");
 
-	// Load default icon
-	m_defaultIcon = QIcon::fromTheme("application-x-executable");
-
 	// Create default application cathegories
 	m_categories.clear();
 	createCategories();
 
 	// Signals
-	connect(m_appTree, SIGNAL(currentItemChanged(QTreeWidgetItem *, QTreeWidgetItem *)),
+	connect(m_sideTree, SIGNAL(currentItemChanged(QTreeWidgetItem *, QTreeWidgetItem *)),
 			SLOT(updateCommand(QTreeWidgetItem *, QTreeWidgetItem *)));
-	connect(m_appTree, SIGNAL(itemExpanded(QTreeWidgetItem*)), this, SLOT(initCategory(QTreeWidgetItem*)));
+	connect(m_sideTree, SIGNAL(itemExpanded(QTreeWidgetItem*)), this, SLOT(initCategory(QTreeWidgetItem*)));
 
 	return widget;
 }
@@ -193,7 +197,7 @@ void MimeDlg::createCategories()
 {
 	foreach (QString name, m_catNames.keys()) {
 
-		QIcon icon = QIcon::fromTheme("applications-" + name.toLower());		// Find icon
+	/*	QIcon icon = QIcon::fromTheme("applications-" + name.toLower());		// Find icon
 
 		if (icon.isNull()) {		// If icon not found, check synonyms
 			foreach (QString synonym, m_catNames.value(name)) {
@@ -204,11 +208,11 @@ void MimeDlg::createCategories()
 
 		if (icon.isNull()) {		// If icon still not found, retrieve default icon
 			icon = m_defaultIcon;
-		}
+		}*/
 
-		QTreeWidgetItem *category = new QTreeWidgetItem(m_appTree);		// Create category
+		QTreeWidgetItem *category = new QTreeWidgetItem(m_sideTree);		// Create category
 		category->setText(0, name);
-		category->setIcon(0, icon);
+		category->setIcon(0, R::appIcon(name.toLower()));
 		category->setFlags(Qt::ItemIsEnabled);
 
 		m_categories.insert(name, category);
@@ -286,7 +290,7 @@ void MimeDlg::initCategory(QTreeWidgetItem *category)
 			isNew = true;
 			item = category->child(0);				// first child
 		}
-		item->setIcon(0, FileUtils::searchAppIcon(*app, m_defaultIcon));
+		item->setIcon(0, R::appIcon(*app));
 		item->setText(0, app->getName());
 		item->setFlags(Qt::ItemIsSelectable | Qt::ItemIsEnabled);
 		m_applications.insert(app->getPureFileName(), item);			// Register application
@@ -334,24 +338,26 @@ void MimeDlg::threadFunc(void *arg)
 void MimeDlg::onLoadFinished()
 {
 	if (!m_mimeSettings->isLoaded() && m_mode == MimeDlgMode::EditMimes) {
-		QTimer::singleShot(400, this, SLOT(loadItems()));
+		QTimer::singleShot(20, this, SLOT(loadItems()));
 	}
 }
 
 void MimeDlg::loadItems()
 {
 	if (!m_loaded) {
-		m_thread.startLoad(MimeDlg::threadFunc, (void *) this);
+		loadCategories();
+		onLoadFinished();
+	//	m_thread.startLoad(MimeDlg::threadFunc, (void *) this);
 		return;
 	}
 
 	if (!m_mimeSettings->isLoaded() && m_mode == MimeDlgMode::EditMimes) {
 	//	m_thread.startLoad(MimeSettings::threadFunc, (void *) m_mimeSettings);
-		m_appTree->setEnabled(false);
+		m_sideTree->setEnabled(false);
 		m_buttons->setEnabled(false);
 		m_busy = true;
 		m_mimeSettings->loadMimes();
-		m_appTree->setEnabled(true);
+		m_sideTree->setEnabled(true);
 		m_buttons->setEnabled(true);
 		m_busy = false;
 		return;
@@ -364,7 +370,7 @@ void MimeDlg::updateCommand(QTreeWidgetItem *current, QTreeWidgetItem *previous)
 {
 	Q_UNUSED(previous);
 
-	m_edtCommand->setText(m_applications.key(current));
+	m_edSelApp->setText(m_applications.key(current));
 }
 
 void MimeDlg::onAppItemDoubleClicked(QTreeWidgetItem *item, int col)

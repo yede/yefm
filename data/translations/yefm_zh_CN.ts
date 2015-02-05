@@ -211,7 +211,7 @@
 <context>
     <name>FsHandler</name>
     <message>
-        <location filename="../../src/yefshandler.cpp" line="243"/>
+        <location filename="../../src/yefshandler.cpp" line="244"/>
         <source>Link</source>
         <translation>链接</translation>
     </message>
@@ -247,27 +247,27 @@
 <context>
     <name>FsWidget</name>
     <message>
-        <location filename="../../src/yefswidget.cpp" line="208"/>
+        <location filename="../../src/yefswidget.cpp" line="219"/>
         <source>Path not exests:</source>
         <translation>路径不存在：</translation>
     </message>
     <message>
-        <location filename="../../src/yefswidget.cpp" line="459"/>
+        <location filename="../../src/yefswidget.cpp" line="470"/>
         <source>Read only...can not create file</source>
         <translation>只读...无法创建文件</translation>
     </message>
     <message>
-        <location filename="../../src/yefswidget.cpp" line="463"/>
+        <location filename="../../src/yefswidget.cpp" line="474"/>
         <source>new_file</source>
         <translation>新文件</translation>
     </message>
     <message>
-        <location filename="../../src/yefswidget.cpp" line="493"/>
+        <location filename="../../src/yefswidget.cpp" line="504"/>
         <source>Read only...can not create folder</source>
         <translation>只读...无法创建文件夹</translation>
     </message>
     <message>
-        <location filename="../../src/yefswidget.cpp" line="497"/>
+        <location filename="../../src/yefswidget.cpp" line="508"/>
         <source>new_folder</source>
         <translation>新文件夹</translation>
     </message>
@@ -275,37 +275,32 @@
 <context>
     <name>MimeDlg</name>
     <message>
-        <location filename="../../src/yemimedlg.cpp" line="90"/>
-        <source>Select application</source>
+        <location filename="../../src/yemimedlg.cpp" line="43"/>
+        <source>Double click to add into associated applications.</source>
+        <translation>双击添加程序到关联列表。</translation>
+    </message>
+    <message>
+        <location filename="../../src/yemimedlg.cpp" line="97"/>
+        <source>Select an application</source>
         <translation>选择程序</translation>
     </message>
     <message>
-        <location filename="../../src/yemimedlg.cpp" line="93"/>
-        <source>For mime-type: %1</source>
-        <translation>选择匹配 %1 的程序</translation>
-    </message>
-    <message>
-        <location filename="../../src/yemimedlg.cpp" line="94"/>
-        <source>Launcher: </source>
-        <translation>选中程序：</translation>
-    </message>
-    <message>
-        <location filename="../../src/yemimedlg.cpp" line="112"/>
+        <location filename="../../src/yemimedlg.cpp" line="119"/>
         <source>Edit mime-open items</source>
         <translation>编辑 mime 关联程序</translation>
     </message>
     <message>
-        <location filename="../../src/yemimedlg.cpp" line="115"/>
+        <location filename="../../src/yemimedlg.cpp" line="122"/>
         <source>Available applications</source>
         <translation>可用程序</translation>
     </message>
     <message>
-        <location filename="../../src/yemimedlg.cpp" line="116"/>
-        <source>Double click to add application.</source>
-        <translation>双击添加程序。</translation>
+        <location filename="../../src/yemimedlg.cpp" line="100"/>
+        <source>Launcher for mime-type: %1</source>
+        <translation>选中的程序（mime类型：%1）</translation>
     </message>
     <message>
-        <location filename="../../src/yemimedlg.cpp" line="144"/>
+        <location filename="../../src/yemimedlg.cpp" line="151"/>
         <source>Application</source>
         <translation>程序</translation>
     </message>
@@ -313,42 +308,47 @@
 <context>
     <name>MimeSettings</name>
     <message>
-        <location filename="../../src/yemimesettings.cpp" line="40"/>
+        <location filename="../../src/yemimesettings.cpp" line="50"/>
         <source>Mime types</source>
-        <translation>Mime 类型</translation>
+        <translation>全部 Mime 类型</translation>
     </message>
     <message>
-        <location filename="../../src/yemimesettings.cpp" line="57"/>
+        <location filename="../../src/yemimesettings.cpp" line="68"/>
         <source>Mime</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../src/yemimesettings.cpp" line="58"/>
+        <location filename="../../src/yemimesettings.cpp" line="69"/>
         <source>Application</source>
         <translation>程序</translation>
     </message>
     <message>
-        <location filename="../../src/yemimesettings.cpp" line="61"/>
-        <source>Applications</source>
-        <translation>程序</translation>
+        <location filename="../../src/yemimesettings.cpp" line="41"/>
+        <source>Filter pattern:</source>
+        <translation>筛选：</translation>
     </message>
     <message>
-        <location filename="../../src/yemimesettings.cpp" line="63"/>
+        <location filename="../../src/yemimesettings.cpp" line="72"/>
+        <source>Associated applications:</source>
+        <translation>关联程序列表：</translation>
+    </message>
+    <message>
+        <location filename="../../src/yemimesettings.cpp" line="74"/>
         <source>Remove</source>
         <translation>移除</translation>
     </message>
     <message>
-        <location filename="../../src/yemimesettings.cpp" line="64"/>
+        <location filename="../../src/yemimesettings.cpp" line="75"/>
         <source>Move up</source>
         <translation>向上移动</translation>
     </message>
     <message>
-        <location filename="../../src/yemimesettings.cpp" line="65"/>
+        <location filename="../../src/yemimesettings.cpp" line="76"/>
         <source>Move down</source>
         <translation>向下移动</translation>
     </message>
     <message>
-        <location filename="../../src/yemimesettings.cpp" line="230"/>
+        <location filename="../../src/yemimesettings.cpp" line="241"/>
         <source>Loading mime types...</source>
         <translation>载入 mime 类型列表...</translation>
     </message>

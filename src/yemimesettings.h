@@ -7,13 +7,13 @@
 #include <QStackedLayout>
 //==============================================================================================================================
 
-class QTreeWidget;
-class QTreeWidgetItem;
+class QLineEdit;
 class QListWidget;
-class QListWidgetItem;
 
 class YeApplication;
 class Mime;
+class MimeView;
+class MimeItem;
 
 class MimeSettings : public QWidget
 {
@@ -23,22 +23,21 @@ public:
 	~MimeSettings();
 
 	void addDesktopItem(const QString &name);
-	bool save();
+	bool saveMimes();
 
-	bool isLoaded() const { return m_loaded; }
-	QTreeWidget *mimeTree() const { return m_mimeWidget; }
+	bool isLoaded() const;
 
 private:
+	QWidget *createToolButton(const QString &icon, const QString &tips, const char *method);
 	QWidget *createMimeSettings();
 	QWidget *createMimeProgress();
-	void loadAppIcons();
 
 signals:
 
 public slots:
 	void loadMimes();
-	void updateMimeAssoc(QTreeWidgetItem* item);
-	void onMimeSelected(QTreeWidgetItem* current, QTreeWidgetItem* previous);
+	void updateMimeAssoc(MimeItem* item);
+	void onMimeSelected(MimeItem* current, MimeItem* previous);
 	void removeAppAssoc();
 	void moveAppAssocUp();
 	void moveAppAssocDown();
@@ -46,10 +45,10 @@ public slots:
 private:
 	YeApplication  *m_app;
 	Mime           *m_mime;
-	bool            m_loaded;
-	QTreeWidget    *m_mimeWidget;
+	MimeView       *m_mimeView;
 	QWidget        *m_progress;
 	QStackedLayout *m_stack;
+	QLineEdit      *m_edFilter;
 	QWidget        *m_appAssoc;
 	QListWidget    *m_appList;
 	QProgressBar   *m_progressMime;

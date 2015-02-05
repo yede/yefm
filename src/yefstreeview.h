@@ -1,5 +1,5 @@
-#ifndef FSTREEVIEW_H
-#define FSTREEVIEW_H
+#ifndef YE_FSTREEVIEW_H
+#define YE_FSTREEVIEW_H
 
 #include <QItemDelegate>
 #include <QTreeView>
@@ -72,4 +72,4 @@ private:
 	FsTreeDelegate  *m_delegate;
 };
 
-#endif // FSTREEVIEW_H
+#endif // YE_FSTREEVIEW_H
