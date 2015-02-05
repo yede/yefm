@@ -356,16 +356,4 @@ void FsCache::loadMimeTypes()
 		mimeInfo.close();
 	}
 }
-
-QVariant FsCache::findMimeIcon(const QString &path)
-{
-	QString mime = m_mime->getMimeType(path);
-	if (m_mimeIcons.contains(mime)) {
-		return m_mimeIcons.value(mime);
-	}
-
-	QIcon theIcon = FileUtils::searchMimeIcon(mime);	// Search file system for icon
-	m_mimeIcons.insert(mime, theIcon);
-	return theIcon;
-}
 //==============================================================================================================================

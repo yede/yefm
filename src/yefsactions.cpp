@@ -133,7 +133,7 @@ QAction *FsActions::createCustomAction(const QString &appName)
 		return NULL;
 	}
 
-	QAction *action = new QAction(FileUtils::searchAppIcon(df), name, this);
+	QAction *action = new QAction(R::appIcon(df), name, this);
 	action->setData(exec);
 	connect(action, SIGNAL(triggered()), SLOT(openWithApp()));
 
@@ -144,7 +144,7 @@ QAction *FsActions::createCustomAction(const QString &title, const QString &exec
 {
 	if (title.isEmpty() || exec.isEmpty()) return NULL;
 
-	QAction *action = new QAction(FileUtils::searchAppIcon(icon), title, this);
+	QAction *action = new QAction(R::appIcon(icon), title, this);
 	action->setData(exec);
 	connect(action, SIGNAL(triggered()), SLOT(openWithApp()));
 
@@ -222,7 +222,7 @@ QAction *FsActions::createMimeAction(const QString &appName, QObject *parent, bo
 	if (isOpenWith)
 		name = tr("Open with %1").arg(name);
 
-	QAction *action = new QAction(FileUtils::searchAppIcon(df), name, parent);
+	QAction *action = new QAction(R::appIcon(df), name, parent);
 	action->setData(exec);
 	connect(action, SIGNAL(triggered()), SLOT(openWithApp()));
 

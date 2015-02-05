@@ -4,11 +4,12 @@
 #include "yefsactions.h"
 #include "yefsactionsdlg.h"
 #include "ui_yefsactionsdlg.h"
+#include "yefileutils.h"
+
 #include "yeapp.h"
 #include "yeappdata.h"
 #include "yeappresources.h"
 #include "yeapplication.h"
-#include "yefileutils.h"
 //==============================================================================================================================
 
 FsActionsDlg::FsActionsDlg(YeApplication *app, QWidget *parent)
@@ -405,10 +406,10 @@ QIcon FsActionsDlg::searchIcon(int kind, const QString &name, const QString &ico
 {
 	if (kind == FsActionKind::DesktopApp && !name.isEmpty()) {
 		DesktopFile df = DesktopFile("/usr/share/applications/" + name + ".desktop");
-		return FileUtils::searchAppIcon(df);
+		return R::appIcon(df);
 	}
 
-	return FileUtils::searchAppIcon(icon);
+	return R::appIcon(icon);
 }
 
 QListWidgetItem *FsActionsDlg::addItem(int kind, const QString &name, const QString &exec, const QString &icon,

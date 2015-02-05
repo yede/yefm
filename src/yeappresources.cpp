@@ -6,6 +6,8 @@
 #include "yeappdata.h"
 #include "yeappresources.h"
 #include "yeapplication.h"
+
+#include "yedesktopfile.h"
 //==============================================================================================================================
 
 R *R::m_res = NULL;
@@ -26,6 +28,22 @@ YeMainWindow  *R::win()             { return m_res->m_app->win(); }
 void           R::updateIconTheme() { m_res->reset(); }
 int            R::iconSize()        { return m_res->m_data.iconSize; }
 int            R::menuIconSize()    { return m_res->m_data.menuIconSize; }
+
+const QIcon R::appIcon(const QString &app, int size)
+{
+	if (size < 1) size = data().iconSize;
+	QIcon icon;
+	if (m_res->searchAppIcon(icon, size, app)) return icon;
+	return m_res->getDefaultAppIcon(size);
+}
+
+const QIcon R::appIcon(const DesktopFile &app, int size)
+{
+	if (size < 1) size = data().iconSize;
+	QIcon icon;
+	if (m_res->searchAppIcon(icon, size, app)) return icon;
+	return m_res->getDefaultAppIcon(size);
+}
 
 const QIcon &R::defaultIcon(const QString &name, int size)
 {
@@ -144,6 +162,11 @@ const QIcon &R::getDefaultIcon(int size, const QString &name)
 	}
 
 	return icons[name];
+}
+
+const QIcon &R::getDefaultAppIcon(int size)
+{
+	return getDefaultIcon(size, "application-x-executable");
 }
 //==============================================================================================================================
 
@@ -357,6 +380,94 @@ bool R::searchIconExts(QIcon &icon, const QString &name, const QString &path)
 	}
 
 //	qDebug() << "searchIconExts(): not found:" << name << path;
+	return false;
+}
+//==============================================================================================================================
+
+void R::resizeIcon(QIcon &icon, int size)
+{
+	QPixmap pixmap = icon.pixmap(size, size);
+	icon = QIcon(pixmap);
+}
+
+bool R::buildIconFromFile(QIcon &icon, int size, const QString &file)
+{
+	if (!QFile(file).exists()) return false;
+
+	QPixmap pixmap(file);
+	if (pixmap.isNull()) return false;
+
+	if (pixmap.size() != QSize(size, size)) pixmap = pixmap.scaled(size, size);
+	icon = QIcon(pixmap);
+
+	return !icon.isNull();
+}
+
+bool R::searchIconByName(QIcon &icon, int size, const QString &name)
+{
+	if (name.isEmpty()) return false;
+	if (buildIconFromFile(icon, size, name)) return true;
+
+	QString iconDir = "/usr/share/pixmaps";
+	QDir appIcons(iconDir, "", 0, QDir::Files | QDir::NoDotAndDotDot);
+	QStringList iconFiles = appIcons.entryList();
+	QStringList searchIcons = iconFiles.filter(name);
+	if (searchIcons.count() > 0) {
+		QString file = QString("%1/%2").arg(iconDir).arg(searchIcons.at(0));
+		if (buildIconFromFile(icon, size, file)) return true;
+	}
+
+	if (searchThemeIcon(icon, size, name, IconSearchMode::AppIcon)) {
+		resizeIcon(icon, size);
+		return true;
+	}
+
+	icon = QIcon::fromTheme(name);
+	if (!icon.isNull()) {
+		resizeIcon(icon, size);
+		return true;
+	}
+
+	return false;
+}
+
+bool R::searchAppIcon(QIcon &icon, int size, const QString &app)
+{
+	if (app.isEmpty()) return false;
+
+	QString ext = ".desktop";
+	QString name;
+
+	if (app.endsWith(ext)) {
+		int n = app.length() - ext.length();
+		name = app.left(n);
+	} else {
+		name = app;
+	}
+
+	if (searchIconByName(icon, size, name)) return true;
+
+	QString path = "/usr/share/applications/";
+	QString file = QString("%1/%2%3").arg(path).arg(name).arg(ext);
+	DesktopFile df = DesktopFile(file);
+
+	return searchAppIcon(icon, size, df);
+}
+
+bool R::searchAppIcon(QIcon &icon, int size, const DesktopFile &app)
+{
+	QString name = app.getIcon();
+
+	if (searchIconByName(icon, size, name)) return true;
+
+/*	name = app.getFileName().remove(".desktop").split("/").last();	// try luck with application name
+	icon = QIcon::fromTheme(name);
+	if (!icon.isNull()) {
+		int size = R::data().menuIconSize;
+		resizeIcon(icon, size);
+		return icon;
+	}*/
+
 	return false;
 }
 //==============================================================================================================================

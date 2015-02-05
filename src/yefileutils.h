@@ -27,12 +27,6 @@ public:
 	static QString getRealSuffix(const QString &name);
 	static QString getTitleFromPath(const QString &path);
 
-	static QIcon searchGenericIcon(const QString &category, const QIcon &defaultIcon = QIcon::fromTheme("unknown"));
-	static QIcon searchMimeIcon(QString mime, const QIcon &defaultIcon = QIcon::fromTheme("unknown"));
-
-	static QIcon searchAppIcon(const DesktopFile &app, const QIcon &defaultIcon = QIcon::fromTheme("application-x-executable"));
-	static QIcon searchAppIcon(const QString &appName, const QIcon &defaultIcon = QIcon::fromTheme("application-x-executable"));
-
 	static QString formatSize(qint64);
 	static QString getDriveInfo(QString);
 };

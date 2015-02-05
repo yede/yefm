@@ -34,7 +34,6 @@ public:
 	QByteArray buildThumb(QString item);
 
 	QVariant findIcon(const QString &path);
-	QVariant findMimeIcon(const QString &path);
 
 	QHash<QString,QIcon> &folderIcons() { return m_folderIcons; }
 	QHash<QString,QIcon> &mimeIcons()   { return m_mimeIcons; }

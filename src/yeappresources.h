@@ -9,6 +9,7 @@
 class AppData;
 class YeApplication;
 class YeMainWindow;
+class DesktopFile;
 
 class R
 {
@@ -26,6 +27,8 @@ public:
 
 	static int iconSize();
 	static int menuIconSize();
+	static const QIcon appIcon(const QString &app, int size = 0);
+	static const QIcon appIcon(const DesktopFile &app, int size = 0);
 	static const QIcon &defaultIcon(const QString &name, int size = 0);
 	static const QIcon &icon(const QString &name, int size = 0);
 	static const QIcon &menuIcon(const QString &name);
@@ -40,10 +43,17 @@ private:
 
 	const QIcon &getIcon(int size, const QString &name);
 	const QIcon &getDefaultIcon(int size, const QString &name);
+	const QIcon &getDefaultAppIcon(int size);
 
 	bool searchThemeIcon(QIcon &icon, int size, const QString &name, int mode);
 	bool searchIconDirs(QIcon &icon, int size, const QString &name, const QString &path, int type, int mode);
 	bool searchIconExts(QIcon &icon, const QString &name, const QString &path);
+
+	void resizeIcon(QIcon &icon, int size);
+	bool buildIconFromFile(QIcon &icon, int size, const QString &file);
+	bool searchIconByName(QIcon &icon, int size, const QString &name);
+	bool searchAppIcon(QIcon &icon, int size, const QString &app);
+	bool searchAppIcon(QIcon &icon, int size, const DesktopFile &app);
 
 private:
 	static R      *m_res;
