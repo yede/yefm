@@ -1,7 +1,7 @@
 #ifndef YE_MIMEMODEL_H
 #define YE_MIMEMODEL_H
 
-#include <QAbstractItemModel>
+#include <QSortFilterProxyModel>
 #include <QIcon>
 //==============================================================================================================================
 
@@ -52,5 +52,31 @@ private:
 	MimeItem *m_root;
 	QIcon m_defaultIcon;
 };
+//==============================================================================================================================
+
+class MimeFilterModel : public QSortFilterProxyModel
+{
+	Q_OBJECT
+public:
+	explicit MimeFilterModel(MimeModel *source, QObject *parent = 0);
+	~MimeFilterModel();
+
+	void setMimePattern(const QString &pattern);
+
+protected:
+	bool filterAcceptsRow(int sourceRow, const QModelIndex &sourceParent) const;
+//	bool lessThan(const QModelIndex &left, const QModelIndex &right) const;
+	bool filterMimes(MimeItem *item) const;
+
+signals:
+
+public slots:
+
+private:
+	MimeModel *m_source;
+	int m_mode;
+	QStringList m_mimes;
+};
+//==============================================================================================================================
 
 #endif // YE_MIMEMODEL_H

@@ -5,9 +5,9 @@
 #include <QGroupBox>
 #include <QProgressBar>
 #include <QStackedLayout>
+#include <QLineEdit>
 //==============================================================================================================================
 
-class QLineEdit;
 class QListWidget;
 class QListWidgetItem;
 
@@ -57,6 +57,23 @@ private:
 
 public:
 	static void threadFunc(void *arg);
+};
+//==============================================================================================================================
+
+class MimeFilterEdit : public QLineEdit
+{
+	Q_OBJECT
+public:
+	MimeFilterEdit(MimeView *view, QWidget *parent = 0);
+
+public slots:
+	void updateMimeFilter();
+
+protected:
+	void keyPressEvent(QKeyEvent *event);
+
+private:
+	MimeView *m_view;
 };
 
 #endif // MIMESETTINGS_H

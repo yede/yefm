@@ -1,6 +1,6 @@
 #include <QVBoxLayout>
 #include <QGroupBox>
-#include <QLineEdit>
+#include <QKeyEvent>
 #include <QListWidgetItem>
 #include <QSpacerItem>
 #include <QPushButton>
@@ -52,9 +52,10 @@ QWidget *MimeSettings::createToolButton(const QString &icon, const QString &tips
 
 QWidget *MimeSettings::createMimeSettings()
 {
-	m_edFilter = new QLineEdit;
-	QLabel *label = new QLabel(tr("Filter pattern:"));
+	m_mimeView = new MimeView(m_app);
+	m_edFilter = new MimeFilterEdit(m_mimeView);
 
+	QLabel *label = new QLabel(tr("Filter pattern:"));
 	QHBoxLayout *filterLayout = new QHBoxLayout;
 	filterLayout->setContentsMargins(0, 0, 0, 6);
 	filterLayout->setSpacing(6);
@@ -63,8 +64,6 @@ QWidget *MimeSettings::createMimeSettings()
 	//--------------------------------------------------------------------------------------------------------------------------
 
 	label = new QLabel(tr("Mime types"));
-	m_mimeView = new MimeView(m_app);
-
 	QWidget *mimeWidget = new QWidget;
 	QVBoxLayout *mimeLayout = new QVBoxLayout(mimeWidget);
 
@@ -243,5 +242,44 @@ void MimeSettings::threadFunc(void *arg)
 {
 	MimeSettings *p = (MimeSettings *) arg;
 	p->loadMimes();
+}
+
+//==============================================================================================================================
+// class MimeFilterEdit
+//==============================================================================================================================
+
+MimeFilterEdit::MimeFilterEdit(MimeView *view, QWidget *parent)
+	: QLineEdit(parent), m_view(view)
+{
+//	connect(m_edFilter, SIGNAL(editingFinished()), this, SLOT(updateMimeFilter()));
+}
+
+void MimeFilterEdit::updateMimeFilter()
+{
+	QString pattern = text().trimmed();
+	m_view->setFilter(pattern);
+}
+
+void MimeFilterEdit::keyPressEvent(QKeyEvent *event)
+{
+	int key = event->key();
+	int mod = event->modifiers();
+
+	if (key == Qt::Key_Return || key == Qt::Key_Enter) {
+		updateMimeFilter();
+		event->accept();
+		return;
+	}
+
+	bool flag = (!hasSelectedText() && key == Qt::Key_X && mod == Qt::ControlModifier) ||
+				(key == Qt::Key_Delete && mod == Qt::ControlModifier);
+	if (flag) {
+		clear();
+		updateMimeFilter();
+		event->accept();
+		return;
+	}
+
+	QLineEdit::keyPressEvent(event);
 }
 //==============================================================================================================================

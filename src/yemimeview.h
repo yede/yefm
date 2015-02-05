@@ -20,8 +20,9 @@ private:
 //==============================================================================================================================
 
 class YeApplication;
-class MimeModel;
 class MimeItem;
+class MimeModel;
+class MimeFilterModel;
 
 class MimeView : public QTreeView
 {
@@ -34,11 +35,13 @@ public:
 	bool saveMimes();
 
 	void updateApps(MimeItem *item);
+	void setFilter(const QString &pattern);
 
 	bool isLoaded() const;
 	MimeItem *currentItem() const;
 
 private:
+	MimeItem *getItem(const QModelIndex &mapped) const;
 
 signals:
 	void currentItemChanged(MimeItem *current, MimeItem *previous);
@@ -50,6 +53,7 @@ public slots:
 private:
 	YeApplication *m_app;
 	MimeModel *m_model;
+	MimeFilterModel *m_filter;
 	MimeViewDelegate *m_delegate;
 };
 

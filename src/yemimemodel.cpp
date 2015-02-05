@@ -168,6 +168,7 @@ int MimeModel::rowCount(const QModelIndex &parent) const
 
 int MimeModel::columnCount(const QModelIndex &parent) const
 {
+	Q_UNUSED(parent);
 /*	MimeItem *p = getItem(parent);
 	switch (p->type) {
 		case MimeItemType::Root: return 2;
@@ -251,3 +252,79 @@ QVariant MimeModel::headerData(int section, Qt::Orientation orientation, int rol
 
 	return QVariant();
 }
+
+//==============================================================================================================================
+// class MimeFilterModel
+//==============================================================================================================================
+
+namespace MimeFilterMode {
+	enum { None, Mime, Cate };
+}
+
+MimeFilterModel::MimeFilterModel(MimeModel *source, QObject *parent)
+	: QSortFilterProxyModel(parent)
+	, m_source(source)
+	, m_mode(MimeFilterMode::None)
+{
+	setSourceModel(source);
+	setSortCaseSensitivity(Qt::CaseInsensitive);
+}
+
+MimeFilterModel::~MimeFilterModel()
+{
+}
+//==============================================================================================================================
+
+void MimeFilterModel::setMimePattern(const QString &pattern)
+{
+	m_mimes.clear();
+	QStringList mimes = pattern.split(',');
+	int n = mimes.size();
+
+	for (int i = 0; i < n; i++) {
+		QString str = mimes.at(i).trimmed();
+		if (!str.isEmpty()) m_mimes.append(str);
+	}
+
+	m_mode = MimeFilterMode::Mime;		// round 1, we select all categories and expected mime-items
+	invalidateFilter();
+
+	m_mode = MimeFilterMode::Cate;		// round 2, we skip all empty categories, keep expected mime-items
+	invalidateFilter();
+
+	m_mode = MimeFilterMode::None;
+}
+
+bool MimeFilterModel::filterAcceptsRow(int sourceRow, const QModelIndex &sourceParent) const
+{
+	if (m_mode == MimeFilterMode::None) return true;
+	if (m_mimes.isEmpty()) return true;
+//	qDebug() << "filterAcceptsRow" << QTime::currentTime();
+
+	QModelIndex source = m_source->index(sourceRow, 0, sourceParent);
+	MimeItem *item = m_source->getItem(source);
+
+	if (m_mode == MimeFilterMode::Mime) {
+		if (item->type != MimeItemType::Mime) return true;
+		return filterMimes(item);
+	}
+
+	if (m_mode == MimeFilterMode::Cate) {
+		if (item->type == MimeItemType::Mime) return filterMimes(item);
+		if (item->type != MimeItemType::Cate) return true;
+		QModelIndex mapped = this->mapFromSource(source);
+		return hasChildren(mapped);
+	}
+
+	return false;
+}
+
+bool MimeFilterModel::filterMimes(MimeItem *item) const
+{
+	int n = m_mimes.size();
+	for (int i = 0; i < n; i++) {
+		if (item->name.contains(m_mimes.at(i))) return true;
+	}
+	return false;
+}
+//==============================================================================================================================

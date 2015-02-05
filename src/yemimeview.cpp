@@ -36,7 +36,8 @@ MimeView::MimeView(YeApplication *app, QWidget *parent)
 	setSelectionBehavior(QAbstractItemView::SelectRows);
 
 	m_model = new MimeModel(m_app);
-	setModel(m_model);
+	m_filter = new MimeFilterModel(m_model);
+	setModel(m_filter);
 
 	setColumnWidth(0, 200);
 //	setColumnWidth(1, 300);
@@ -83,28 +84,40 @@ void MimeView::updateApps(MimeItem *item)
 {
 	if (item == NULL || item->type != MimeItemType::Mime) return;
 
-	QModelIndex index = m_model->index(item, 1);
-	update(index);
+	QModelIndex source = m_model->index(item, 1);
+	QModelIndex mapped = m_filter->mapFromSource(source);
+	update(mapped);
+}
+
+void MimeView::setFilter(const QString &pattern)
+{
+	m_filter->setMimePattern(pattern);
+//	this->expandAll();
 }
 //==============================================================================================================================
+
+MimeItem *MimeView::getItem(const QModelIndex &mapped) const
+{
+	QModelIndex source = m_filter->mapToSource(mapped);
+	MimeItem *item = m_model->getItem(source);
+	if (m_model->isRoot(item)) item = NULL;
+
+	return item;
+}
 
 MimeItem *MimeView::currentItem() const
 {
 	QModelIndex index = currentIndex();
-	MimeItem *curr = m_model->getItem(index);
-	if (m_model->isRoot(curr)) curr = NULL;
-	return curr;
+
+	return getItem(index);
 }
 
 void MimeView::currentChanged(const QModelIndex &current, const QModelIndex &previous)
 {
 	if (m_model == NULL) return;
 
-	MimeItem *curr = m_model->getItem(current);
-	if (m_model->isRoot(curr)) curr = NULL;
-
-	MimeItem *prev = m_model->getItem(previous);
-	if (m_model->isRoot(prev)) prev = NULL;
+	MimeItem *curr = getItem(current);
+	MimeItem *prev = getItem(previous);
 
 	emit currentItemChanged(curr, prev);
 }
