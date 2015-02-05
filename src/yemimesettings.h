@@ -9,6 +9,7 @@
 
 class QLineEdit;
 class QListWidget;
+class QListWidgetItem;
 
 class YeApplication;
 class Mime;
@@ -31,6 +32,7 @@ private:
 	QWidget *createToolButton(const QString &icon, const QString &tips, const char *method);
 	QWidget *createMimeSettings();
 	QWidget *createMimeProgress();
+	void updateItemSizeHint(QListWidgetItem *item);
 
 signals:
 

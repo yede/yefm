@@ -108,6 +108,12 @@ QWidget *MimeSettings::createMimeSettings()
 }
 //==============================================================================================================================
 
+void MimeSettings::updateItemSizeHint(QListWidgetItem *item)
+{
+	int sz = R::data().iconSize + 2;
+	item->setSizeHint(QSize(sz, sz));
+}
+
 void MimeSettings::onMimeSelected(MimeItem *current, MimeItem *previous)
 {
 	Q_UNUSED(previous);
@@ -126,7 +132,9 @@ void MimeSettings::onMimeSelected(MimeItem *current, MimeItem *previous)
 		if (app.isEmpty()) continue;
 
 		QIcon icon = R::appIcon(app);
-		m_appList->addItem(new QListWidgetItem(icon, app, m_appList));		// Add application
+		QListWidgetItem *item = new QListWidgetItem(icon, app, m_appList);
+		updateItemSizeHint(item);
+		m_appList->addItem(item);		// Add application
 	}
 }
 
