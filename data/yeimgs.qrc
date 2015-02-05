@@ -43,6 +43,7 @@
         <file alias="star">img-16/star.png</file>
         <file alias="mouse">img-16/mouse.png</file>
         <file alias="gtk-edit">img-16/gtk-edit.png</file>
+        <file alias="unknown">img-16/unknown.png</file>
     </qresource>
     <qresource prefix="/22">
         <file alias="view-split-top-bottom">img-22/view-split-top-bottom.png</file>
@@ -88,6 +89,7 @@
         <file alias="star">img-22/star.png</file>
         <file alias="mouse">img-22/mouse.png</file>
         <file alias="gtk-edit">img-22/gtk-edit.png</file>
+        <file alias="unknown">img-22/unknown.png</file>
     </qresource>
     <qresource prefix="/">
         <file alias="file-manager">imgs/file-manager.png</file>

@@ -130,11 +130,11 @@ bool MimeModel::saveMimes()
 	for (int r = 0; r < cnt; ++r)
 	{
 		MimeItem *cate = m_root->child(r);
-		int catCount = cate->rowCount();
-		for (int c = 0; c < catCount; c++)
+		int mimeCount = cate->rowCount();
+		for (int m = 0; m < mimeCount; m++)
 		{
 			QStringList apps;
-			MimeItem *item = cate->child(c);
+			MimeItem *item = cate->child(m);	// mime item
 			if (!item->apps.isEmpty())
 			{
 				apps = item->apps.split(";");
