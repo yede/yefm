@@ -52,6 +52,7 @@ protected:
 private:
 	QWidget *createAppTree();
 	void createCategories();
+	void updateItemSizeHint(QTreeWidgetItem *item);
 
 public slots:
 	void accept();
@@ -82,6 +83,7 @@ protected:
 	QTreeWidgetItem *findCategory(const DesktopFile &app);
 
 private slots:
+	void updateIconTheme();
 	void onLoadFinished();
 	void loadItems();
 

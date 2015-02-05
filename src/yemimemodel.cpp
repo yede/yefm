@@ -31,7 +31,7 @@ MimeModel::~MimeModel()
 
 void MimeModel::updateIconTheme()
 {
-	if (!R::getMimeIcon(m_defaultIcon, "unknown")) {
+	if (!R::findMimeIcon(m_defaultIcon, "unknown")) {
 		m_defaultIcon = R::defaultIcon("unknown");
 	}
 

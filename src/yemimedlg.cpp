@@ -147,14 +147,34 @@ void MimeDlg::showEvent(QShowEvent *event)
 }
 //==============================================================================================================================
 
+void MimeDlg::updateItemSizeHint(QTreeWidgetItem *item)
+{
+	int sz = R::data().iconSize + 2;
+	item->setSizeHint(0, QSize(sz, sz));
+}
+
+void MimeDlg::updateIconTheme()
+{
+//	m_delegate->updateRowHeight();
+	int sz = R::data().iconSize;
+	m_sideTree->setIconSize(QSize(sz, sz));
+//	m_model->updateIconTheme();
+
+	if (m_sideTree->topLevelItemCount() > 0) {
+		//
+	}
+}
+
 QWidget *MimeDlg::createAppTree()
 {
 
 	// Creates app list view
 	m_sideTree = new QTreeWidget;
-	m_sideTree->setIconSize(QSize(16, 16));
 	m_sideTree->setAlternatingRowColors(true);
 	m_sideTree->headerItem()->setText(0, tr("Application"));
+
+	updateIconTheme();
+	connect(m_app, SIGNAL(iconThemeChanged()), this, SLOT(updateIconTheme()));
 
 	// Command bar
 	m_titleLabel = new QLabel;
@@ -177,9 +197,10 @@ QWidget *MimeDlg::createAppTree()
 	m_catNames.insert("Internet", QStringList() << "Network" << "WebBrowser");
 	m_catNames.insert("Multimedia", QStringList() << "AudioVideo" << "Video");
 	m_catNames.insert("Office", QStringList());
-	m_catNames.insert("Other", QStringList());
-	m_catNames.insert("Settings", QStringList() << "System");
+	m_catNames.insert("System", QStringList());
+	m_catNames.insert("Settings", QStringList() << "preferences-desktop");
 	m_catNames.insert("Utilities", QStringList() << "Utility");
+	m_catNames.insert("Other", QStringList());
 
 	// Create default application cathegories
 	m_categories.clear();
@@ -197,23 +218,30 @@ void MimeDlg::createCategories()
 {
 	foreach (QString name, m_catNames.keys()) {
 
-	/*	QIcon icon = QIcon::fromTheme("applications-" + name.toLower());		// Find icon
+		QIcon icon;
+		bool ok = R::findIcon(icon, "applications-" + name.toLower());
 
-		if (icon.isNull()) {		// If icon not found, check synonyms
+		if (!ok) {
 			foreach (QString synonym, m_catNames.value(name)) {
-				icon = QIcon::fromTheme("applications-" + synonym.toLower());
-				break;
+				ok = R::findIcon(icon, "applications-" + synonym.toLower());
+				if (ok) break;
 			}
-		}
 
-		if (icon.isNull()) {		// If icon still not found, retrieve default icon
-			icon = m_defaultIcon;
-		}*/
+			if (!ok) {
+				foreach (QString synonym, m_catNames.value(name)) {
+					ok = R::findIcon(icon, synonym.toLower());
+					if (ok) break;
+				}
+			}
+
+			if (!ok) icon = R::defaultIcon("application-x-executable");
+		}
 
 		QTreeWidgetItem *category = new QTreeWidgetItem(m_sideTree);		// Create category
 		category->setText(0, name);
-		category->setIcon(0, R::appIcon(name.toLower()));
+		category->setIcon(0, icon);
 		category->setFlags(Qt::ItemIsEnabled);
+		updateItemSizeHint(category);
 
 		m_categories.insert(name, category);
 	}
@@ -290,6 +318,7 @@ void MimeDlg::initCategory(QTreeWidgetItem *category)
 			isNew = true;
 			item = category->child(0);				// first child
 		}
+		updateItemSizeHint(item);
 		item->setIcon(0, R::appIcon(*app));
 		item->setText(0, app->getName());
 		item->setFlags(Qt::ItemIsSelectable | Qt::ItemIsEnabled);

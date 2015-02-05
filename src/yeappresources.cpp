@@ -69,7 +69,12 @@ const QPixmap &R::pixmap(const QString &name)
 	return m_res->m_pixmaps[name];
 }
 
-bool R::getMimeIcon(QIcon &icon, const QString &name, int size)
+bool R::findIcon(QIcon &icon, const QString &name, int size)
+{
+	return m_res->searchThemeIcon(icon, size > 0 ? size : data().iconSize, name, IconSearchMode::AppIcon);
+}
+
+bool R::findMimeIcon(QIcon &icon, const QString &name, int size)
 {
 	return m_res->searchThemeIcon(icon, size > 0 ? size : data().iconSize, name, IconSearchMode::MimeIcon);
 }
@@ -121,23 +126,24 @@ const QIcon &R::getIcon(int size, const QString &name)
 	QHash<QString, QIcon> &icons = (size == 16) ? m_icons16 : m_icons22;
 
 	if (!icons.contains(name)) {
+		bool ok = false;
 		QIcon icon;				//	qDebug() << "";
 		const QList<QString> aliases = m_iconAliases.values(name);
 
 		if (aliases.isEmpty()) {
-		//	qDebug() << "getIcon(): no alias, search:" << size << name <<
-			searchThemeIcon(icon, size, name, IconSearchMode::AppIcon);
+			ok = searchThemeIcon(icon, size, name, IconSearchMode::AppIcon);
+		//	qDebug() << "getIcon(): aliases.isEmpty():" << size << name << ok;
 		} else {
 			foreach (const QString &alias, aliases) {
-				bool ok = searchThemeIcon(icon, size, alias, IconSearchMode::AppIcon);
+				ok = searchThemeIcon(icon, size, alias, IconSearchMode::AppIcon);
 		//		qDebug() << "getIcon(): alias:" << ok << size << alias;
 				if (ok) break;
 			}
 		}
 
-		if (icon.isNull()) {
+		if (!ok) {
 			icon = getDefaultIcon(size, name);
-		//	qDebug() << "getDefaultIcon():" << size << name;
+		//	qDebug() << "getIcon(): getDefaultIcon():" << size << name;
 		}
 
 		icons.insert(name, icon);
@@ -159,6 +165,7 @@ const QIcon &R::getDefaultIcon(int size, const QString &name)
 			qDebug() << "ERROR getDefaultIcon():" << size << name;
 		}
 		icons.insert(name, icon);
+	//	qDebug() << "getDefaultIcon():" << size << name << icon;
 	}
 
 	return icons[name];

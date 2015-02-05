@@ -34,7 +34,8 @@ public:
 	static const QIcon &menuIcon(const QString &name);
 	static const QPixmap &pixmap(const QString &name);
 
-	static bool getMimeIcon(QIcon &icon, const QString &name, int size = 0);
+	static bool findIcon(QIcon &icon, const QString &name, int size = 0);
+	static bool findMimeIcon(QIcon &icon, const QString &name, int size = 0);
 	static bool getValidIconTheme(QList<int> &types, QStringList &paths, const QString &iconTheme);
 
 private:

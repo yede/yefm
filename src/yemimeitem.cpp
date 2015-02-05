@@ -65,9 +65,9 @@ void MimeItem::searchGenericIcon()
 
 	m_iconLoaded = true;
 
-	if (R::getMimeIcon(m_icon, name + "-generic")) return;
+	if (R::findMimeIcon(m_icon, name + "-generic")) return;
 
-	R::getMimeIcon(m_icon, name + "-x-generic");
+	R::findMimeIcon(m_icon, name + "-x-generic");
 }
 
 void MimeItem::searchMimeIcon()
@@ -80,7 +80,7 @@ void MimeItem::searchMimeIcon()
 	if (parent == NULL) return;
 
 	QString icon = parent->name + "-" + name;
-	if (R::getMimeIcon(m_icon, icon)) return;
+	if (R::findMimeIcon(m_icon, icon)) return;
 
 	if (parent->type == MimeItemType::Cate)
 		parent->searchGenericIcon();

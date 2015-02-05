@@ -228,9 +228,9 @@ QVariant FsCache::findIcon(const QString &path)
 		QString home = QDir::homePath();
 	//	qDebug() << "findIcon():" << path << name << home;
 		if (path == home) {
-			R::getMimeIcon(icon, "user-home");
+			R::findMimeIcon(icon, "user-home");
 		} else {
-			R::getMimeIcon(icon, "folder");
+			R::findMimeIcon(icon, "folder");
 		}
 		if (icon.isNull()) icon = R::icon("folder");
 		if (isSymLink) drawSymbolicLink(icon);
@@ -274,12 +274,12 @@ QVariant FsCache::findIcon(const QString &path)
 	//	qDebug() << "\nfindIcon().0:" << path << "(" << suffix.toLower() << ")(" << name << ")";
 
 		if (name.isEmpty()) goto text;
-		if (R::getMimeIcon(icon, name)) goto done;
+		if (R::findMimeIcon(icon, name)) goto done;
 
 		if (name.endsWith(".ms-word")) {
 			tmp = "x-office-document";
 	//		qDebug() << "findIcon().1:" << tmp;
-			if (R::getMimeIcon(icon, tmp)) goto done;
+			if (R::findMimeIcon(icon, tmp)) goto done;
 		}
 
 		if (!name.startsWith("application-")) {
@@ -287,11 +287,11 @@ QVariant FsCache::findIcon(const QString &path)
 			if (n > 0) {
 				tmp = name.left(n);
 	//			qDebug() << "findIcon().2:" << tmp;
-				if (R::getMimeIcon(icon, tmp)) goto done;
+				if (R::findMimeIcon(icon, tmp)) goto done;
 
 				tmp = tmp + "-x-generic";
 	//			qDebug() << "findIcon().3:" << tmp;
-				if (R::getMimeIcon(icon, tmp)) goto done;
+				if (R::findMimeIcon(icon, tmp)) goto done;
 			}
 		}
 /*
@@ -306,12 +306,12 @@ QVariant FsCache::findIcon(const QString &path)
 		name = m_mimeGeneric.value(name);				// try matching generic icon
 	//	qDebug() << "findIcon().4:" << name;
 		if (name.isEmpty()) goto text;
-		if (R::getMimeIcon(icon, name)) goto done;
+		if (R::findMimeIcon(icon, name)) goto done;
 
 		name = name.split("-").at(0) + "-x-generic";	// last resort try adding "-x-generic" to base type
 	//	qDebug() << "findIcon().5:" << name;
 		if (name.isEmpty()) goto text;
-		if (R::getMimeIcon(icon, name)) goto done;
+		if (R::findMimeIcon(icon, name)) goto done;
 text:
 		icon = R::icon("text-x-generic");
 	//	qDebug() << "findIcon().6:" << "text-x-generic";
