@@ -193,17 +193,17 @@
         <translation>向下移动</translation>
     </message>
     <message>
-        <location filename="../../src/yefsactionsdlg.cpp" line="272"/>
+        <location filename="../../src/yefsactionsdlg.cpp" line="273"/>
         <source>Extract here</source>
         <translation>解压到这里</translation>
     </message>
     <message>
-        <location filename="../../src/yefsactionsdlg.cpp" line="335"/>
+        <location filename="../../src/yefsactionsdlg.cpp" line="336"/>
         <source>Title:</source>
         <translation>标题：</translation>
     </message>
     <message>
-        <location filename="../../src/yefsactionsdlg.cpp" line="335"/>
+        <location filename="../../src/yefsactionsdlg.cpp" line="336"/>
         <source>Launcher:</source>
         <translation>启动器：</translation>
     </message>
@@ -275,32 +275,45 @@
 <context>
     <name>MimeDlg</name>
     <message>
-        <location filename="../../src/yemimedlg.cpp" line="43"/>
+        <location filename="../../src/yemimedlg.cpp" line="49"/>
         <source>Double click to add into associated applications.</source>
         <translation>双击添加程序到关联列表。</translation>
     </message>
     <message>
-        <location filename="../../src/yemimedlg.cpp" line="97"/>
+        <location filename="../../src/yemimedlg.cpp" line="103"/>
         <source>Select an application</source>
         <translation>选择程序</translation>
     </message>
     <message>
-        <location filename="../../src/yemimedlg.cpp" line="119"/>
+        <location filename="../../src/yemimedlg.cpp" line="125"/>
         <source>Edit mime-open items</source>
         <translation>编辑 mime 关联程序</translation>
     </message>
     <message>
-        <location filename="../../src/yemimedlg.cpp" line="122"/>
+        <location filename="../../src/yemimedlg.cpp" line="128"/>
         <source>Available applications</source>
         <translation>可用程序</translation>
     </message>
     <message>
-        <location filename="../../src/yemimedlg.cpp" line="100"/>
+        <location filename="../../src/yemimedlg.cpp" line="106"/>
         <source>Launcher for mime-type: %1</source>
         <translation>选中的程序（mime类型：%1）</translation>
     </message>
     <message>
-        <location filename="../../src/yemimedlg.cpp" line="151"/>
+        <location filename="../../src/yemimedlg.cpp" line="157"/>
+        <source>Application</source>
+        <translation>程序</translation>
+    </message>
+</context>
+<context>
+    <name>MimeModel</name>
+    <message>
+        <location filename="../../src/yemimemodel.cpp" line="248"/>
+        <source>Mime</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../../src/yemimemodel.cpp" line="249"/>
         <source>Application</source>
         <translation>程序</translation>
     </message>
@@ -308,47 +321,37 @@
 <context>
     <name>MimeSettings</name>
     <message>
-        <location filename="../../src/yemimesettings.cpp" line="50"/>
+        <location filename="../../src/yemimesettings.cpp" line="65"/>
         <source>Mime types</source>
         <translation>全部 Mime 类型</translation>
     </message>
     <message>
-        <location filename="../../src/yemimesettings.cpp" line="68"/>
-        <source>Mime</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../../src/yemimesettings.cpp" line="69"/>
-        <source>Application</source>
-        <translation>程序</translation>
-    </message>
-    <message>
-        <location filename="../../src/yemimesettings.cpp" line="41"/>
+        <location filename="../../src/yemimesettings.cpp" line="56"/>
         <source>Filter pattern:</source>
         <translation>筛选：</translation>
     </message>
     <message>
-        <location filename="../../src/yemimesettings.cpp" line="72"/>
+        <location filename="../../src/yemimesettings.cpp" line="78"/>
         <source>Associated applications:</source>
         <translation>关联程序列表：</translation>
     </message>
     <message>
-        <location filename="../../src/yemimesettings.cpp" line="74"/>
+        <location filename="../../src/yemimesettings.cpp" line="80"/>
         <source>Remove</source>
         <translation>移除</translation>
     </message>
     <message>
-        <location filename="../../src/yemimesettings.cpp" line="75"/>
+        <location filename="../../src/yemimesettings.cpp" line="81"/>
         <source>Move up</source>
         <translation>向上移动</translation>
     </message>
     <message>
-        <location filename="../../src/yemimesettings.cpp" line="76"/>
+        <location filename="../../src/yemimesettings.cpp" line="82"/>
         <source>Move down</source>
         <translation>向下移动</translation>
     </message>
     <message>
-        <location filename="../../src/yemimesettings.cpp" line="241"/>
+        <location filename="../../src/yemimesettings.cpp" line="202"/>
         <source>Loading mime types...</source>
         <translation>载入 mime 类型列表...</translation>
     </message>
