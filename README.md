@@ -1,5 +1,7 @@
 # Yefm - Simple 2 panes file manager based on Qt
 
+Rewritten from qtFM.
+
 ##Features
 
 - Simple GUI
