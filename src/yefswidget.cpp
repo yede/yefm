@@ -531,7 +531,7 @@ void FsWidget::handleRun()
 {
 	QFileInfo info;
 	if (getCurrentFileInfo(info) && info.isExecutable()) {
-		QString cmd = info.fileName();
+		QString cmd = info.filePath();
 		QStringList args;
 		QProcess::startDetached(cmd, args, m_workPath);
 	}
