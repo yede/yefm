@@ -254,6 +254,5 @@ void FsHandler::showStatusMessage(const QModelIndex &index)
 		 << date.toString(R::data().statTimeFormat)
 		 << name;
 
-	int pos = m_app->win()->pane0() == m_widget->pane() ? 0 : 1;
-	m_app->win()->showStatusMessage(msgs, pos, 12000);
+	m_app->win()->showStatusMessage(msgs, m_widget->pane()->index(), 12000);
 }

@@ -58,8 +58,8 @@ void YeMainWindow::setupWindow()
 	m_infoPad = new InfoPad(this);
 	m_infoPad->hide();
 
-	m_pane0 = new YeFilePane(this);
-	m_pane1 = new YeFilePane(this);
+	m_pane0 = new YeFilePane(this, 0);
+	m_pane1 = new YeFilePane(this, 1);
 
 	loadSessionData();
 	int h = m_sessionData.geometry.height();
@@ -75,11 +75,20 @@ void YeMainWindow::setupWindow()
 }
 //==============================================================================================================================
 
-void YeMainWindow::startSession()
+void YeMainWindow::startSession(int &argc, char **argv)
 {
 	initWindowGeometry();
-	m_pane0->loadSessionTabs();
-	m_pane1->loadSessionTabs();
+
+	QStringList paths;
+	int i = 1;
+	while (i < argc) {
+		QString path = argv[i];
+		paths.append(path);
+		i++;
+	}
+	m_pane0->loadSessionTabs(paths);
+	m_pane1->loadSessionTabs(QStringList());
+
 	m_pane1->setVisible(false);
 	show();
 	m_ready = true;

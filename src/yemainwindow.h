@@ -29,7 +29,7 @@ public:
 	void showPadMessage(const QString &text, const QString &title, int time);
 
 	void setupWindow();
-	void startSession();
+	void startSession(int &argc, char **argv);
 
 	YeApplication *app()   const { return m_app; }
 	YeFilePane    *pane0() const { return m_pane0; }

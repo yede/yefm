@@ -149,13 +149,13 @@ void YeApplication::createMainWindow()
 	setWindowIcon(m_resources->iconLogo);
 }
 
-bool YeApplication::startSession()
+bool YeApplication::startSession(int &argc, char **argv)
 {
 	createResources();
 	createMainWindow();
 
 //	m_cache->loadIconCache();
-	m_win->startSession();
+	m_win->startSession(argc, argv);
 
 	return true;
 }

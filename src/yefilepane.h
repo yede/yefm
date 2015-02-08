@@ -28,10 +28,10 @@ class YeFilePane : public QWidget
 {
 	Q_OBJECT
 public:
-	explicit YeFilePane(YeMainWindow *mainWindow, QWidget *parent = 0);
+	explicit YeFilePane(YeMainWindow *mainWindow, int index, QWidget *parent = 0);
 	~YeFilePane();
 
-	void loadSessionTabs();
+	void loadSessionTabs(const QStringList &startPaths);
 	void saveSessionTabs();
 
 	void showPath(FsWidget *widget, const QString &path);
@@ -51,6 +51,7 @@ public:
 	FsWidget      *currentView() const { return m_current; }
 	bool isHiddenVisible() const;
 	int  currentViewMode() const;
+	int  index() const { return m_index; }
 
 private:
 	void updateIcons();
@@ -100,6 +101,7 @@ public slots:
 private:
 	YeApplication  *m_app;
 	YeMainWindow   *m_win;
+	int             m_index;
 	bool            m_has2paneButton;
 	bool            m_rightSide;
 	FsWidget       *m_current;

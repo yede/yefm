@@ -35,7 +35,7 @@ public:
 	void callPriorInstance(int &argc, char **argv);
 	bool hasPriorInstance() const;
 
-	bool startSession();
+	bool startSession(int &argc, char **argv);
 	void stopSession();
 
 	void updateIconTheme();

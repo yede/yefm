@@ -7,6 +7,7 @@
 #include <QMenu>
 #include <QAction>
 #include <QProcess>
+#include <QSettings>
 #include <QDebug>
 
 #include "yefilepane.h"
@@ -32,10 +33,11 @@
 #include "yemainwindow.h"
 //==============================================================================================================================
 
-YeFilePane::YeFilePane(YeMainWindow *mainWindow, QWidget *parent)
+YeFilePane::YeFilePane(YeMainWindow *mainWindow, int index, QWidget *parent)
 	: QWidget(parent)
 	, m_app(mainWindow->app())
 	, m_win(mainWindow)
+	, m_index(index)
 	, m_has2paneButton(mainWindow->pane0() == NULL)
 	, m_rightSide(R::data().rightSide)
 	, m_current(NULL)
@@ -310,14 +312,45 @@ void YeFilePane::onIconThemeChanged()
 }
 //==============================================================================================================================
 
-void YeFilePane::loadSessionTabs()
+void YeFilePane::loadSessionTabs(const QStringList &startPaths)
 {
-	// TODO: load tabs from last session
-	addTab();
+	FsWidget *view = NULL;
+	QStringList tabs;
+
+	QSettings s(App::getSessionTabsFile(), QSettings::IniFormat);
+	s.beginGroup(QString("pane-%1").arg(m_index));
+	tabs = s.value("tabs").toStringList();
+	s.endGroup();
+
+	foreach (const QString &path, tabs) {
+		if (QDir(path).exists()) view = insertTab(path, -1, false);
+	}
+	foreach (const QString &path, startPaths) {
+		if (QDir(path).exists()) view = insertTab(path, -1, false);
+	}
+
+	if (view == NULL) {
+		addTab();
+	} else {
+		setWorkView(view, true);
+	}
 }
 
 void YeFilePane::saveSessionTabs()
 {
+	QStringList paths;
+	TreeNode *root = m_tabModel->rootNode();
+	QList<TreeNode *> &tabs = root->children();
+
+	foreach (TreeNode *node, tabs) {
+		FsWidget *view = static_cast<FsWidget *>(node->arg());
+		paths.append(view->workPath());
+	}
+
+	QSettings s(App::getSessionTabsFile(), QSettings::IniFormat);
+	s.beginGroup(QString("pane-%1").arg(m_index));
+	s.setValue("tabs", paths);
+	s.endGroup();
 }
 //==============================================================================================================================
 

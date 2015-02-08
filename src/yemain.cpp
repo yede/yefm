@@ -15,7 +15,7 @@ int main(int argc, char *argv[])
 
 	int ret = 0;
 
-	if (app.startSession()) {
+	if (app.startSession(argc, argv)) {
 		ret = app.exec();
 		app.stopSession();
 	}
