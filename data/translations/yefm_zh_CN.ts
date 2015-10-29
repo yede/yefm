@@ -2,463 +2,836 @@
 <!DOCTYPE TS>
 <TS version="2.1" language="zh_CN">
 <context>
-    <name>FsActions</name>
+    <name>CustomActionsDlg</name>
     <message>
-        <location filename="../../src/yefsactions.cpp" line="223"/>
-        <source>Open with %1</source>
-        <translation>用 %1 打开</translation>
+        <location filename="../../actionmgr/yecustomactionsdlg.ui" line="14"/>
+        <source>Custom action settings</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/yefsactions.cpp" line="241"/>
-        <source>Select... (mime-type: %1)</source>
-        <translation>选择...（mime类型: %1）</translation>
+        <location filename="../../actionmgr/yecustomactionsdlg.ui" line="46"/>
+        <source>Kind:</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/yefsactions.cpp" line="242"/>
-        <source>Select application for opening the file</source>
-        <translation>选择用于打开文件的程序</translation>
+        <location filename="../../actionmgr/yecustomactionsdlg.ui" line="74"/>
+        <source>Desktop launcher</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/yefsactions.cpp" line="265"/>
-        <source>More</source>
-        <translation>更多</translation>
+        <location filename="../../actionmgr/yecustomactionsdlg.ui" line="84"/>
+        <source>Command directly</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/yefsactions.cpp" line="265"/>
-        <source>Open with</source>
-        <translation>关联程序</translation>
+        <location filename="../../actionmgr/yecustomactionsdlg.ui" line="107"/>
+        <source>Name:</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/yefsactions.cpp" line="300"/>
-        <source>New file</source>
-        <translation>新文件</translation>
+        <location filename="../../actionmgr/yecustomactionsdlg.ui" line="119"/>
+        <source>Select desktop file...</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/yefsactions.cpp" line="301"/>
-        <source>New folder</source>
-        <translation>新文件夹</translation>
+        <location filename="../../actionmgr/yecustomactionsdlg.ui" line="122"/>
+        <location filename="../../actionmgr/yecustomactionsdlg.ui" line="146"/>
+        <location filename="../../actionmgr/yecustomactionsdlg.ui" line="170"/>
+        <location filename="../../actionmgr/yecustomactionsdlg.ui" line="286"/>
+        <location filename="../../actionmgr/yecustomactionsdlg.ui" line="296"/>
+        <location filename="../../actionmgr/yecustomactionsdlg.ui" line="306"/>
+        <location filename="../../actionmgr/yecustomactionsdlg.ui" line="316"/>
+        <source>...</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/yefsactions.cpp" line="302"/>
-        <source>Run</source>
-        <translation>运行</translation>
+        <location filename="../../actionmgr/yecustomactionsdlg.ui" line="131"/>
+        <source>Command:</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/yefsactions.cpp" line="303"/>
-        <source>Cut</source>
-        <translation>剪切</translation>
+        <location filename="../../actionmgr/yecustomactionsdlg.ui" line="143"/>
+        <source>Select command...</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/yefsactions.cpp" line="304"/>
-        <source>Copy</source>
-        <translation>复制</translation>
+        <location filename="../../actionmgr/yecustomactionsdlg.ui" line="155"/>
+        <source>Icon:</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/yefsactions.cpp" line="305"/>
-        <source>Paste</source>
-        <translation>粘帖</translation>
+        <location filename="../../actionmgr/yecustomactionsdlg.ui" line="167"/>
+        <source>Select icon...</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/yefsactions.cpp" line="306"/>
-        <source>Delete</source>
-        <translation>删除</translation>
+        <location filename="../../actionmgr/yecustomactionsdlg.ui" line="179"/>
+        <source>Associate to:</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/yefsactions.cpp" line="307"/>
-        <source>Rename</source>
-        <translation>重命名</translation>
+        <location filename="../../actionmgr/yecustomactionsdlg.ui" line="207"/>
+        <source>Folder</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/yefsactions.cpp" line="308"/>
-        <source>Properties</source>
-        <translation>属性</translation>
+        <location filename="../../actionmgr/yecustomactionsdlg.ui" line="214"/>
+        <source>File</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/yefsactions.cpp" line="309"/>
-        <source>test...</source>
-        <translation>测试...</translation>
+        <location filename="../../actionmgr/yecustomactionsdlg.ui" line="224"/>
+        <source>Any file</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../actionmgr/yecustomactionsdlg.ui" line="231"/>
+        <source>Any file or folder</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../actionmgr/yecustomactionsdlg.ui" line="254"/>
+        <source>Associated types:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../actionmgr/yecustomactionsdlg.ui" line="283"/>
+        <source>Add item</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../actionmgr/yecustomactionsdlg.ui" line="293"/>
+        <source>Delete item</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../actionmgr/yecustomactionsdlg.ui" line="303"/>
+        <source>Move up</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../actionmgr/yecustomactionsdlg.ui" line="313"/>
+        <source>Move down</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../actionmgr/yecustomactionsdlg.cpp" line="138"/>
+        <source>Extract here</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../actionmgr/yecustomactionsdlg.cpp" line="201"/>
+        <source>Title:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../actionmgr/yecustomactionsdlg.cpp" line="201"/>
+        <source>Launcher:</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
-    <name>FsActionsDlg</name>
+    <name>DefaultActions</name>
     <message>
-        <location filename="../../src/yefsactionsdlg.ui" line="14"/>
-        <source>Custom action settings</source>
-        <translation>配置自定义关联程序</translation>
+        <location filename="../../actionmgr/yedefaultactions.cpp" line="53"/>
+        <source>New file</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/yefsactionsdlg.ui" line="74"/>
-        <source>Desktop launcher</source>
-        <translation>启动器</translation>
+        <location filename="../../actionmgr/yedefaultactions.cpp" line="54"/>
+        <source>New folder</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/yefsactionsdlg.ui" line="107"/>
-        <source>Name:</source>
-        <translation>名称：</translation>
+        <location filename="../../actionmgr/yedefaultactions.cpp" line="55"/>
+        <source>Run</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/yefsactionsdlg.ui" line="131"/>
-        <source>Command:</source>
-        <translation>命令：</translation>
+        <location filename="../../actionmgr/yedefaultactions.cpp" line="56"/>
+        <source>Cut</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/yefsactionsdlg.ui" line="143"/>
-        <source>Select command...</source>
-        <translation>选择命令程序...</translation>
+        <location filename="../../actionmgr/yedefaultactions.cpp" line="57"/>
+        <source>Copy</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/yefsactionsdlg.ui" line="122"/>
-        <location filename="../../src/yefsactionsdlg.ui" line="146"/>
-        <location filename="../../src/yefsactionsdlg.ui" line="170"/>
-        <location filename="../../src/yefsactionsdlg.ui" line="286"/>
-        <location filename="../../src/yefsactionsdlg.ui" line="296"/>
-        <location filename="../../src/yefsactionsdlg.ui" line="306"/>
-        <location filename="../../src/yefsactionsdlg.ui" line="316"/>
-        <source>...</source>
-        <translation></translation>
+        <location filename="../../actionmgr/yedefaultactions.cpp" line="58"/>
+        <source>Paste</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/yefsactionsdlg.ui" line="155"/>
-        <source>Icon:</source>
-        <translation>图标：</translation>
+        <location filename="../../actionmgr/yedefaultactions.cpp" line="59"/>
+        <source>Delete</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/yefsactionsdlg.ui" line="167"/>
-        <source>Select icon...</source>
-        <translation>选择图标...</translation>
+        <location filename="../../actionmgr/yedefaultactions.cpp" line="60"/>
+        <source>Rename</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/yefsactionsdlg.ui" line="179"/>
-        <source>Associate to:</source>
-        <translation>关联到：</translation>
+        <location filename="../../actionmgr/yedefaultactions.cpp" line="61"/>
+        <source>Properties</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/yefsactionsdlg.ui" line="214"/>
-        <source>File</source>
-        <translation>文件</translation>
+        <location filename="../../actionmgr/yedefaultactions.cpp" line="62"/>
+        <source>test...</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>FilePane</name>
+    <message>
+        <location filename="../../appui/yefilepane.cpp" line="126"/>
+        <source>Bookmark List</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/yefsactionsdlg.ui" line="207"/>
-        <source>Folder</source>
-        <translation>文件夹</translation>
+        <location filename="../../appui/yefilepane.cpp" line="127"/>
+        <source>UDev Devices</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/yefsactionsdlg.ui" line="46"/>
-        <source>Kind:</source>
-        <translation>类别：</translation>
+        <location filename="../../appui/yefilepane.cpp" line="128"/>
+        <source>File System</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/yefsactionsdlg.ui" line="84"/>
-        <source>Command directly</source>
-        <translation>直接命令</translation>
+        <location filename="../../appui/yefilepane.cpp" line="131"/>
+        <source>Toggle list/details mode</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/yefsactionsdlg.ui" line="119"/>
-        <source>Select desktop file...</source>
-        <translation>选择程序启动器文件...</translation>
+        <location filename="../../appui/yefilepane.cpp" line="138"/>
+        <source>Toggle Hidden Files</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/yefsactionsdlg.ui" line="224"/>
-        <source>Any file</source>
-        <translation>任意文件</translation>
+        <location filename="../../appui/yefilepane.cpp" line="139"/>
+        <source>Refresh</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/yefsactionsdlg.ui" line="231"/>
-        <source>Any file or folder</source>
-        <translation>任意文件或文件夹</translation>
+        <location filename="../../appui/yefilepane.cpp" line="140"/>
+        <source>Go Up</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/yefsactionsdlg.ui" line="254"/>
-        <source>Associated types:</source>
-        <translation>关联类型：</translation>
+        <location filename="../../appui/yefilepane.cpp" line="142"/>
+        <source>Open Terminal...</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/yefsactionsdlg.ui" line="283"/>
-        <source>Add item</source>
-        <translation>添加项目</translation>
+        <location filename="../../appui/yefilepane.cpp" line="189"/>
+        <source>Add tab</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/yefsactionsdlg.ui" line="293"/>
-        <source>Delete item</source>
-        <translation>删除项目</translation>
+        <location filename="../../appui/yefilepane.cpp" line="190"/>
+        <source>Delete tab</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/yefsactionsdlg.ui" line="303"/>
-        <source>Move up</source>
-        <translation>向上移动</translation>
+        <location filename="../../appui/yefilepane.cpp" line="193"/>
+        <source>Toggle 2 panes</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/yefsactionsdlg.ui" line="313"/>
-        <source>Move down</source>
-        <translation>向下移动</translation>
+        <location filename="../../appui/yefilepane.cpp" line="247"/>
+        <source>Clear</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/yefsactionsdlg.cpp" line="273"/>
-        <source>Extract here</source>
-        <translation>解压到这里</translation>
+        <location filename="../../appui/yefilepane.cpp" line="253"/>
+        <source>Toggle Path Edit</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/yefsactionsdlg.cpp" line="336"/>
-        <source>Title:</source>
-        <translation>标题：</translation>
+        <location filename="../../appui/yefilepane.cpp" line="260"/>
+        <source>Settings...</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/yefsactionsdlg.cpp" line="336"/>
-        <source>Launcher:</source>
-        <translation>启动器：</translation>
+        <location filename="../../appui/yefilepane.cpp" line="261"/>
+        <source>Style settings...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../appui/yefilepane.cpp" line="262"/>
+        <source>Mime open settings...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../appui/yefilepane.cpp" line="263"/>
+        <source>Custom open settings...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../appui/yefilepane.cpp" line="265"/>
+        <source>Show paste manager...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../appui/yefilepane.cpp" line="268"/>
+        <source>Menu</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../appui/yefilepane.cpp" line="457"/>
+        <source>Path not exests:</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>FsDirModel</name>
+    <message>
+        <location filename="../../dirmodel/yefsdirmodel.cpp" line="275"/>
+        <source>new_file</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../dirmodel/yefsdirmodel.cpp" line="290"/>
+        <source>new_folder</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>FsHandler</name>
     <message>
-        <location filename="../../src/yefshandler.cpp" line="244"/>
+        <location filename="../../fswidget/yefshandler.cpp" line="252"/>
         <source>Link</source>
-        <translation>链接</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>FsModel</name>
     <message>
-        <location filename="../../src/yefsmodel.cpp" line="116"/>
+        <location filename="../../fswidget/yefsmodel.cpp" line="133"/>
         <source>Name</source>
-        <translation>文件名</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/yefsmodel.cpp" line="117"/>
+        <location filename="../../fswidget/yefsmodel.cpp" line="134"/>
         <source>Size</source>
-        <translation>大小</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/yefsmodel.cpp" line="118"/>
+        <location filename="../../fswidget/yefsmodel.cpp" line="135"/>
         <source>Type</source>
-        <translation>类型</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/yefsmodel.cpp" line="119"/>
+        <location filename="../../fswidget/yefsmodel.cpp" line="136"/>
         <source>Date Modified</source>
-        <translation>修改日期</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/yefsmodel.cpp" line="120"/>
+        <location filename="../../fswidget/yefsmodel.cpp" line="137"/>
         <source>Owner</source>
-        <translation>所有者</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>FsWidget</name>
     <message>
-        <location filename="../../src/yefswidget.cpp" line="219"/>
-        <source>Path not exests:</source>
-        <translation>路径不存在：</translation>
+        <location filename="../../fswidget/yefswidget.cpp" line="221"/>
+        <source>Folder not exests:</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/yefswidget.cpp" line="470"/>
-        <source>Read only...can not create file</source>
-        <translation>只读...无法创建文件</translation>
+        <location filename="../../fswidget/yefswidget.cpp" line="227"/>
+        <source>Can not enter folder:</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/yefswidget.cpp" line="474"/>
+        <location filename="../../fswidget/yefswidget.cpp" line="578"/>
+        <source>Can not create new file.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../fswidget/yefswidget.cpp" line="579"/>
+        <location filename="../../fswidget/yefswidget.cpp" line="620"/>
+        <source>Current Folder is not writable:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../fswidget/yefswidget.cpp" line="587"/>
         <source>new_file</source>
-        <translation>新文件</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/yefswidget.cpp" line="504"/>
-        <source>Read only...can not create folder</source>
-        <translation>只读...无法创建文件夹</translation>
+        <location filename="../../fswidget/yefswidget.cpp" line="619"/>
+        <source>Can not create new folder.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/yefswidget.cpp" line="508"/>
+        <location filename="../../fswidget/yefswidget.cpp" line="628"/>
         <source>new_folder</source>
-        <translation>新文件夹</translation>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>MainWindow</name>
+    <message>
+        <location filename="../../appui/yemainwindow.cpp" line="319"/>
+        <source>Paste manager is busy.</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>MimeActions</name>
+    <message>
+        <location filename="../../actionmgr/yemimeactions.cpp" line="58"/>
+        <source>Open with %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../actionmgr/yemimeactions.cpp" line="78"/>
+        <source>Select... (mime-type: %1)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../actionmgr/yemimeactions.cpp" line="79"/>
+        <source>Select application for opening the file</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../actionmgr/yemimeactions.cpp" line="102"/>
+        <source>More</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../actionmgr/yemimeactions.cpp" line="102"/>
+        <source>Open with</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>MimeDlg</name>
     <message>
-        <location filename="../../src/yemimedlg.cpp" line="49"/>
+        <location filename="../../mimedlg/yemimedlg.cpp" line="46"/>
         <source>Double click to add into associated applications.</source>
-        <translation>双击添加程序到关联列表。</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/yemimedlg.cpp" line="103"/>
+        <location filename="../../mimedlg/yemimedlg.cpp" line="100"/>
         <source>Select an application</source>
-        <translation>选择程序</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/yemimedlg.cpp" line="125"/>
-        <source>Edit mime-open items</source>
-        <translation>编辑 mime 关联程序</translation>
-    </message>
-    <message>
-        <location filename="../../src/yemimedlg.cpp" line="128"/>
-        <source>Available applications</source>
-        <translation>可用程序</translation>
-    </message>
-    <message>
-        <location filename="../../src/yemimedlg.cpp" line="106"/>
+        <location filename="../../mimedlg/yemimedlg.cpp" line="103"/>
         <source>Launcher for mime-type: %1</source>
-        <translation>选中的程序（mime类型：%1）</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/yemimedlg.cpp" line="157"/>
+        <location filename="../../mimedlg/yemimedlg.cpp" line="122"/>
+        <source>Edit mime-open items</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../mimedlg/yemimedlg.cpp" line="125"/>
+        <source>Available applications</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../mimedlg/yemimedlg.cpp" line="173"/>
         <source>Application</source>
-        <translation>程序</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>MimeModel</name>
     <message>
-        <location filename="../../src/yemimemodel.cpp" line="248"/>
+        <location filename="../../mimedlg/yemimemodel.cpp" line="244"/>
         <source>Mime</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/yemimemodel.cpp" line="249"/>
+        <location filename="../../mimedlg/yemimemodel.cpp" line="245"/>
         <source>Application</source>
-        <translation>程序</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>MimeSettings</name>
     <message>
-        <location filename="../../src/yemimesettings.cpp" line="65"/>
-        <source>Mime types</source>
-        <translation>全部 Mime 类型</translation>
-    </message>
-    <message>
-        <location filename="../../src/yemimesettings.cpp" line="56"/>
+        <location filename="../../mimedlg/yemimesettings.cpp" line="52"/>
         <source>Filter pattern:</source>
-        <translation>筛选：</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/yemimesettings.cpp" line="78"/>
+        <location filename="../../mimedlg/yemimesettings.cpp" line="60"/>
+        <source>Mime types</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../mimedlg/yemimesettings.cpp" line="71"/>
         <source>Associated applications:</source>
-        <translation>关联程序列表：</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/yemimesettings.cpp" line="80"/>
+        <location filename="../../mimedlg/yemimesettings.cpp" line="73"/>
         <source>Remove</source>
-        <translation>移除</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/yemimesettings.cpp" line="81"/>
+        <location filename="../../mimedlg/yemimesettings.cpp" line="74"/>
         <source>Move up</source>
-        <translation>向上移动</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/yemimesettings.cpp" line="82"/>
+        <location filename="../../mimedlg/yemimesettings.cpp" line="75"/>
         <source>Move down</source>
-        <translation>向下移动</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/yemimesettings.cpp" line="202"/>
+        <location filename="../../mimedlg/yemimesettings.cpp" line="208"/>
         <source>Loading mime types...</source>
-        <translation>载入 mime 类型列表...</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>PasteMgr</name>
     <message>
-        <location filename="../../src/yepastemgr.cpp" line="71"/>
-        <location filename="../../src/yepastemgr.cpp" line="84"/>
-        <source>Paste failed</source>
-        <translation>粘帖失败</translation>
+        <location filename="../../pastemgr/yepastemgr.cpp" line="29"/>
+        <source>Paste Manager</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/yepastemgr.cpp" line="72"/>
-        <source>Can not write to destination</source>
-        <translation>无法写入目标位置</translation>
+        <location filename="../../pastemgr/yepastemgr.cpp" line="48"/>
+        <source>Help...</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/yepastemgr.cpp" line="77"/>
-        <source>Cancelled</source>
-        <translation>已取消</translation>
+        <location filename="../../pastemgr/yepastemgr.cpp" line="49"/>
+        <source>Hide window</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../pastemgr/yepastemgr.cpp" line="170"/>
+        <source>Destination folder not exists.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../pastemgr/yepastemgr.cpp" line="179"/>
+        <source>Some source files no longer exists.</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>PasteModel</name>
+    <message>
+        <location filename="../../pastemgr/yepastemodel.cpp" line="113"/>
+        <source>Conflict</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../pastemgr/yepastemodel.cpp" line="114"/>
+        <source>Solution</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../pastemgr/yepastemodel.cpp" line="115"/>
+        <source>Source File Name</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../pastemgr/yepastemodel.cpp" line="116"/>
+        <source>File in Conflict</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>PasteTask</name>
+    <message>
+        <location filename="../../pastemgr/yepastetask.cpp" line="73"/>
+        <source>&lt;b&gt;From Folder&lt;/b&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../pastemgr/yepastetask.cpp" line="74"/>
+        <source>&lt;b&gt;To Folder&lt;/b&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../pastemgr/yepastetask.cpp" line="97"/>
+        <source>Cancel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../pastemgr/yepastetask.cpp" line="98"/>
+        <source>Close</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../pastemgr/yepastetask.cpp" line="99"/>
+        <source>Abort</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../pastemgr/yepastetask.cpp" line="100"/>
+        <source>Start</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../pastemgr/yepastetask.cpp" line="137"/>
+        <source>&lt;b&gt;Conflict&lt;/b&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../pastemgr/yepastetask.cpp" line="138"/>
+        <source>&lt;b&gt;Solution&lt;/b&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../pastemgr/yepastetask.cpp" line="151"/>
+        <source>Skip</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../pastemgr/yepastetask.cpp" line="152"/>
+        <source>Merge</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../pastemgr/yepastetask.cpp" line="153"/>
+        <source>Rename</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../pastemgr/yepastetask.cpp" line="154"/>
+        <source>Replace</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../pastemgr/yepastetask.cpp" line="215"/>
+        <source>&lt;b&gt;Copy&lt;/b&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../pastemgr/yepastetask.cpp" line="216"/>
+        <source>&lt;b&gt;Move&lt;/b&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../pastemgr/yepastetask.cpp" line="339"/>
+        <source>Unsolved conflict found.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../pastemgr/yepastetask.cpp" line="406"/>
+        <source>%1 seconds</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../pastemgr/yepastetask.cpp" line="407"/>
+        <source>%1 min %2 sec</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../pastemgr/yepastetask.cpp" line="408"/>
+        <source>%1% finished, speed %2 MB/s, remaining %3</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>PropertiesDlg</name>
     <message>
-        <location filename="../../src/yepropertiesdlg.cpp" line="37"/>
+        <location filename="../../dialogs/yepropertiesdlg.cpp" line="55"/>
         <source>Properties</source>
-        <translation>属性</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/yepropertiesdlg.cpp" line="109"/>
+        <location filename="../../dialogs/yepropertiesdlg.cpp" line="126"/>
+        <source>Size:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../dialogs/yepropertiesdlg.cpp" line="135"/>
         <source>Choose another icon...</source>
-        <translation>选择其它图标...</translation>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../dialogs/yepropertiesdlg.cpp" line="148"/>
+        <source>Contains:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../dialogs/yepropertiesdlg.cpp" line="164"/>
+        <source>FileType:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../dialogs/yepropertiesdlg.cpp" line="171"/>
+        <source>Modified:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../dialogs/yepropertiesdlg.cpp" line="202"/>
+        <source>Read</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../dialogs/yepropertiesdlg.cpp" line="203"/>
+        <source>Write</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../dialogs/yepropertiesdlg.cpp" line="204"/>
+        <source>Execute</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../dialogs/yepropertiesdlg.cpp" line="209"/>
+        <source>Owner</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../dialogs/yepropertiesdlg.cpp" line="210"/>
+        <source>Group</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../dialogs/yepropertiesdlg.cpp" line="211"/>
+        <source>Other</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../dialogs/yepropertiesdlg.cpp" line="228"/>
+        <source>Numeric</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../dialogs/yepropertiesdlg.cpp" line="257"/>
+        <source>&lt;b&gt;%1 files, %2 folders</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../dialogs/yepropertiesdlg.cpp" line="259"/>
+        <source>&lt;b&gt;%1 folders</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../dialogs/yepropertiesdlg.cpp" line="261"/>
+        <source>&lt;b&gt;%1 files</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../dialogs/yepropertiesdlg.cpp" line="266"/>
+        <source>Total:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../dialogs/yepropertiesdlg.cpp" line="339"/>
+        <source>%1 Files, %2 folders</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../../src/yeapp.cpp" line="61"/>
+        <location filename="../../app/yeapp.cpp" line="63"/>
         <source>Information</source>
-        <translation>信息</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/yeapp.cpp" line="69"/>
+        <location filename="../../app/yeapp.cpp" line="71"/>
         <source>Warning</source>
-        <translation>警告</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/yeapp.cpp" line="77"/>
+        <location filename="../../app/yeapp.cpp" line="79"/>
         <source>Question</source>
-        <translation>问题</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/yefsmodel.cpp" line="343"/>
+        <location filename="../../fswidget/yefsmodel.cpp" line="452"/>
         <source>Failed</source>
-        <translation>失败</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/yefsmodel.cpp" line="344"/>
+        <location filename="../../fswidget/yefsmodel.cpp" line="453"/>
         <source>Could not delete some items...</source>
-        <translation>一些项目无法删除...</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/yefsmodel.cpp" line="345"/>
+        <location filename="../../fswidget/yefsmodel.cpp" line="454"/>
         <source>do you have the right permissions?</source>
-        <translation>是否有足够权限？</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/yefsmodel.cpp" line="351"/>
+        <location filename="../../fswidget/yefsmodel.cpp" line="460"/>
         <source>Careful</source>
-        <translation>小心</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/yefsmodel.cpp" line="352"/>
+        <location filename="../../fswidget/yefsmodel.cpp" line="461"/>
         <source>Be sure to delete:</source>
-        <translation>确认删除：</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/yepastemgr.cpp" line="42"/>
-        <source>Paste failed.</source>
-        <translation>粘帖失败。</translation>
-    </message>
-    <message>
-        <location filename="../../src/yepastemgr.cpp" line="44"/>
-        <source>Failed items:</source>
-        <translation>失败项目：</translation>
-    </message>
-    <message>
-        <location filename="../../src/yepastemgr.cpp" line="279"/>
-        <source>Folder of destination is not exists.</source>
-        <translation>目标文件夹不存在。</translation>
-    </message>
-    <message>
-        <location filename="../../src/yepastemgr.cpp" line="293"/>
-        <source>No paste available!</source>
-        <translation>不能粘帖！</translation>
-    </message>
-    <message>
-        <location filename="../../src/yepastemgr.cpp" line="293"/>
-        <source>Some file no longer exists!</source>
-        <translation>某些文件不再存在！</translation>
-    </message>
-    <message>
-        <location filename="../../src/yefileutils.cpp" line="198"/>
+        <location filename="../../global/yefileutils.cpp" line="271"/>
         <source>Untitled</source>
-        <translation>未命名</translation>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../pastemgr/yepasteitem.cpp" line="81"/>
+        <source>Another folder already exists by this name.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../pastemgr/yepasteitem.cpp" line="82"/>
+        <source>A file with the same name already exists.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../pastemgr/yepasteitem.cpp" line="83"/>
+        <source>A folder with the same name already exists.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../pastemgr/yepasteitem.cpp" line="84"/>
+        <source>Another file already exists by this name.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../pastemgr/yepasteitem.cpp" line="93"/>
+        <source>Skip</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../pastemgr/yepasteitem.cpp" line="94"/>
+        <source>Rename</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../pastemgr/yepasteitem.cpp" line="95"/>
+        <source>Merge</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../pastemgr/yepasteitem.cpp" line="96"/>
+        <source>Replace</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../udev/yeudevnode.cpp" line="25"/>
+        <source>Partition</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../udev/yeudevnode.cpp" line="26"/>
+        <source>Disk</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../udev/yeudevnode.cpp" line="27"/>
+        <source>Unknown</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -466,536 +839,455 @@
     <message>
         <location filename="../../mimetypes/inqt5/qstandardpaths_mac.cpp" line="154"/>
         <source>Home</source>
-        <translation>用户目录</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>SettingsDlg</name>
     <message>
-        <location filename="../../src/yesettingsdlg.ui" line="14"/>
+        <location filename="../../dialogs/yesettingsdlg.ui" line="14"/>
         <source>Settings</source>
-        <translation>设置</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/yesettingsdlg.ui" line="47"/>
+        <location filename="../../dialogs/yesettingsdlg.ui" line="47"/>
         <source>Window</source>
-        <translation>窗口</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/yesettingsdlg.ui" line="52"/>
+        <location filename="../../dialogs/yesettingsdlg.ui" line="52"/>
         <source>Click &amp; enter</source>
-        <translation>点击和进入</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/yesettingsdlg.ui" line="57"/>
-        <location filename="../../src/yesettingsdlg.ui" line="401"/>
+        <location filename="../../dialogs/yesettingsdlg.ui" line="57"/>
+        <location filename="../../dialogs/yesettingsdlg.ui" line="515"/>
         <source>Icon theme</source>
-        <translation>图标主题</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/yesettingsdlg.ui" line="62"/>
+        <location filename="../../dialogs/yesettingsdlg.ui" line="62"/>
         <source>Program files</source>
-        <translation>程序文件</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/yesettingsdlg.ui" line="67"/>
+        <location filename="../../dialogs/yesettingsdlg.ui" line="67"/>
         <source>Date time format</source>
-        <translation>日期时间格式</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/yesettingsdlg.ui" line="79"/>
+        <location filename="../../dialogs/yesettingsdlg.ui" line="79"/>
         <source>Two pane</source>
-        <translation>双面板</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/yesettingsdlg.ui" line="85"/>
+        <location filename="../../dialogs/yesettingsdlg.ui" line="85"/>
         <source>Expand window to desktop height on enabled</source>
-        <translation>双面板时扩展窗口高度到桌面高度</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/yesettingsdlg.ui" line="139"/>
-        <source>position:</source>
-        <translation>位置：</translation>
-    </message>
-    <message>
-        <location filename="../../src/yesettingsdlg.ui" line="317"/>
-        <source>Click make selection, double click to enter</source>
-        <translation>单击选择，双击进入</translation>
-    </message>
-    <message>
-        <location filename="../../src/yesettingsdlg.ui" line="330"/>
-        <source>Click</source>
-        <translation>单击</translation>
-    </message>
-    <message>
-        <location filename="../../src/yesettingsdlg.ui" line="340"/>
-        <source>Hover make selection, and click to enter</source>
-        <translation>鼠标悬停进行选择，单击则进入</translation>
-    </message>
-    <message>
-        <location filename="../../src/yesettingsdlg.ui" line="353"/>
-        <source>Clicking icon area</source>
-        <translation>单击图标区域</translation>
-    </message>
-    <message>
-        <location filename="../../src/yesettingsdlg.ui" line="414"/>
-        <source>Icon size</source>
-        <translation>图标尺寸</translation>
-    </message>
-    <message>
-        <location filename="../../src/yesettingsdlg.ui" line="420"/>
-        <source>16</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../../src/yesettingsdlg.ui" line="430"/>
-        <source>22</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../../src/yesettingsdlg.ui" line="215"/>
-        <source>Enter a folder by</source>
-        <translation>进入文件夹的点击方式</translation>
-    </message>
-    <message>
-        <location filename="../../src/yesettingsdlg.ui" line="307"/>
-        <source>Double click</source>
-        <translation>双击</translation>
-    </message>
-    <message>
-        <location filename="../../src/yesettingsdlg.ui" line="360"/>
-        <source>Click text area make selection, click icon area to enter</source>
-        <translation>单击文字区域进行选择，单击图标区域进入</translation>
-    </message>
-    <message>
-        <location filename="../../src/yesettingsdlg.ui" line="374"/>
-        <source>When shift, ctrl or alt key is pressed, stop hover selection</source>
-        <translation>按下 shift, ctrl 或 alt 键时，不进行悬停选择</translation>
-    </message>
-    <message>
-        <location filename="../../src/yesettingsdlg.ui" line="504"/>
-        <location filename="../../src/yesettingsdlg.ui" line="569"/>
-        <location filename="../../src/yesettingsdlg.ui" line="634"/>
-        <source>Date format</source>
-        <translation>日期格式</translation>
-    </message>
-    <message>
-        <location filename="../../src/yesettingsdlg.ui" line="524"/>
-        <location filename="../../src/yesettingsdlg.ui" line="589"/>
-        <location filename="../../src/yesettingsdlg.ui" line="654"/>
-        <source>Time format</source>
-        <translation>时间格式</translation>
-    </message>
-    <message>
-        <location filename="../../src/yesettingsdlg.ui" line="563"/>
-        <source>Status bar</source>
-        <translation>状态条</translation>
-    </message>
-    <message>
-        <location filename="../../src/yesettingsdlg.ui" line="517"/>
-        <location filename="../../src/yesettingsdlg.ui" line="537"/>
-        <location filename="../../src/yesettingsdlg.ui" line="582"/>
-        <location filename="../../src/yesettingsdlg.ui" line="602"/>
-        <location filename="../../src/yesettingsdlg.ui" line="647"/>
-        <location filename="../../src/yesettingsdlg.ui" line="667"/>
-        <source>...</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../../src/yesettingsdlg.ui" line="272"/>
-        <source>Hover time</source>
-        <translation>鼠标悬停时间</translation>
-    </message>
-    <message>
-        <location filename="../../src/yesettingsdlg.ui" line="628"/>
-        <source>Properties dialog</source>
-        <translation>属性对话框</translation>
-    </message>
-    <message>
-        <location filename="../../src/yesettingsdlg.ui" line="498"/>
-        <source>File detail view</source>
-        <translation>文件明细视图</translation>
-    </message>
-    <message>
-        <location filename="../../src/yesettingsdlg.ui" line="367"/>
-        <source>ms</source>
-        <translation>毫秒</translation>
-    </message>
-    <message>
-        <location filename="../../src/yesettingsdlg.ui" line="117"/>
+        <location filename="../../dialogs/yesettingsdlg.ui" line="117"/>
         <source>Side bar</source>
-        <translation>侧边栏</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/yesettingsdlg.ui" line="705"/>
-        <source>Restart needed to take effect</source>
-        <translation>需要重新启动程序才能生效</translation>
+        <location filename="../../dialogs/yesettingsdlg.ui" line="139"/>
+        <location filename="../../dialogs/yesettingsdlg.ui" line="253"/>
+        <source>Position:</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/yesettingsdlg.ui" line="165"/>
-        <source>Left</source>
-        <translation>左边</translation>
+        <location filename="../../dialogs/yesettingsdlg.ui" line="165"/>
+        <source>&amp;Left</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/yesettingsdlg.ui" line="175"/>
-        <source>Right</source>
-        <translation>右边</translation>
+        <location filename="../../dialogs/yesettingsdlg.ui" line="175"/>
+        <source>&amp;Right</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/yesettingsdlg.ui" line="469"/>
+        <location filename="../../dialogs/yesettingsdlg.ui" line="214"/>
+        <location filename="../../dialogs/yesettingsdlg.ui" line="677"/>
+        <source>Status bar</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../dialogs/yesettingsdlg.ui" line="220"/>
+        <source>Fi&amp;xed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../dialogs/yesettingsdlg.ui" line="230"/>
+        <source>Fl&amp;oating</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../dialogs/yesettingsdlg.ui" line="292"/>
+        <source>Height:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../dialogs/yesettingsdlg.ui" line="329"/>
+        <source>Enter a folder by</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../dialogs/yesettingsdlg.ui" line="386"/>
+        <source>Hover time</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../dialogs/yesettingsdlg.ui" line="421"/>
+        <source>Do&amp;uble click</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../dialogs/yesettingsdlg.ui" line="431"/>
+        <source>Click make selection, double click to enter</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../dialogs/yesettingsdlg.ui" line="444"/>
+        <source>C&amp;lick</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../dialogs/yesettingsdlg.ui" line="454"/>
+        <source>Hover make selection, and click to enter</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../dialogs/yesettingsdlg.ui" line="467"/>
+        <source>Clicking &amp;icon area</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../dialogs/yesettingsdlg.ui" line="474"/>
+        <source>Click text area make selection, click icon area to enter</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../dialogs/yesettingsdlg.ui" line="481"/>
+        <source>ms</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../dialogs/yesettingsdlg.ui" line="488"/>
+        <source>When &amp;shift, ctrl or alt key is pressed, stop hover selection</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../dialogs/yesettingsdlg.ui" line="528"/>
+        <source>Icon size</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../dialogs/yesettingsdlg.ui" line="534"/>
+        <source>&amp;16</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../dialogs/yesettingsdlg.ui" line="544"/>
+        <source>&amp;22</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../dialogs/yesettingsdlg.ui" line="583"/>
         <source>Terminal emulator</source>
-        <translation>命令行终端</translation>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../dialogs/yesettingsdlg.ui" line="612"/>
+        <source>File detail view</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../dialogs/yesettingsdlg.ui" line="618"/>
+        <location filename="../../dialogs/yesettingsdlg.ui" line="683"/>
+        <location filename="../../dialogs/yesettingsdlg.ui" line="748"/>
+        <source>Date format</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../dialogs/yesettingsdlg.ui" line="631"/>
+        <location filename="../../dialogs/yesettingsdlg.ui" line="651"/>
+        <location filename="../../dialogs/yesettingsdlg.ui" line="696"/>
+        <location filename="../../dialogs/yesettingsdlg.ui" line="716"/>
+        <location filename="../../dialogs/yesettingsdlg.ui" line="761"/>
+        <location filename="../../dialogs/yesettingsdlg.ui" line="781"/>
+        <source>...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../dialogs/yesettingsdlg.ui" line="638"/>
+        <location filename="../../dialogs/yesettingsdlg.ui" line="703"/>
+        <location filename="../../dialogs/yesettingsdlg.ui" line="768"/>
+        <source>Time format</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../dialogs/yesettingsdlg.ui" line="742"/>
+        <source>Properties dialog</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../dialogs/yesettingsdlg.ui" line="819"/>
+        <source>Restart needed to take effect</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>StyleSettings</name>
     <message>
-        <location filename="../../src/yestylesettings.ui" line="14"/>
+        <location filename="../../dialogs/yestylesettings.ui" line="14"/>
         <source>Style settings</source>
-        <translation>样式配置</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/yestylesettings.ui" line="41"/>
-        <location filename="../../src/yestylesettings.ui" line="105"/>
+        <location filename="../../dialogs/yestylesettings.ui" line="41"/>
+        <location filename="../../dialogs/yestylesettings.ui" line="105"/>
         <source>Window</source>
-        <translation>窗口</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/yestylesettings.ui" line="46"/>
-        <location filename="../../src/yestylesettings.ui" line="126"/>
+        <location filename="../../dialogs/yestylesettings.ui" line="46"/>
+        <location filename="../../dialogs/yestylesettings.ui" line="126"/>
         <source>Menu</source>
-        <translation>菜单</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/yestylesettings.ui" line="51"/>
-        <location filename="../../src/yestylesettings.ui" line="147"/>
+        <location filename="../../dialogs/yestylesettings.ui" line="51"/>
+        <location filename="../../dialogs/yestylesettings.ui" line="147"/>
         <source>Path toolbar</source>
-        <translation>路径工具条</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/yestylesettings.ui" line="56"/>
-        <location filename="../../src/yestylesettings.ui" line="168"/>
+        <location filename="../../dialogs/yestylesettings.ui" line="56"/>
+        <location filename="../../dialogs/yestylesettings.ui" line="168"/>
         <source>Side toolbar</source>
-        <translation>侧边栏工具条</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/yestylesettings.ui" line="61"/>
+        <location filename="../../dialogs/yestylesettings.ui" line="61"/>
         <source>File view</source>
-        <translation>文件视图</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/yestylesettings.ui" line="66"/>
+        <location filename="../../dialogs/yestylesettings.ui" line="66"/>
         <source>Bookmark list</source>
-        <translation>书签列表</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/yestylesettings.ui" line="71"/>
-        <location filename="../../src/yestylesettings.ui" line="505"/>
+        <location filename="../../dialogs/yestylesettings.ui" line="71"/>
+        <location filename="../../dialogs/yestylesettings.ui" line="505"/>
         <source>Tab list</source>
-        <translation>标签页列表</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/yestylesettings.ui" line="76"/>
-        <location filename="../../src/yestylesettings.ui" line="671"/>
+        <location filename="../../dialogs/yestylesettings.ui" line="76"/>
+        <location filename="../../dialogs/yestylesettings.ui" line="671"/>
         <source>Statusbar</source>
-        <translation>状态栏</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/yestylesettings.ui" line="81"/>
-        <location filename="../../src/yestylesettings.ui" line="750"/>
+        <location filename="../../dialogs/yestylesettings.ui" line="81"/>
+        <location filename="../../dialogs/yestylesettings.ui" line="750"/>
         <source>Others</source>
-        <translation>其它</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/yestylesettings.ui" line="198"/>
+        <location filename="../../dialogs/yestylesettings.ui" line="198"/>
         <source>Color set on file view</source>
-        <translation>文件视图颜色集</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/yestylesettings.ui" line="205"/>
+        <location filename="../../dialogs/yestylesettings.ui" line="205"/>
         <source>Hidden</source>
-        <translation>隐藏</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/yestylesettings.ui" line="228"/>
+        <location filename="../../dialogs/yestylesettings.ui" line="228"/>
         <source>Cut list</source>
-        <translation>剪切项</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/yestylesettings.ui" line="260"/>
+        <location filename="../../dialogs/yestylesettings.ui" line="260"/>
         <source>Symbolic link</source>
-        <translation>符号链接</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/yestylesettings.ui" line="276"/>
+        <location filename="../../dialogs/yestylesettings.ui" line="276"/>
         <source>Strike out cut list</source>
-        <translation>剪切项画删除线</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/yestylesettings.ui" line="283"/>
+        <location filename="../../dialogs/yestylesettings.ui" line="283"/>
         <source>Executable</source>
-        <translation>可执行文件</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/yestylesettings.ui" line="293"/>
+        <location filename="../../dialogs/yestylesettings.ui" line="293"/>
         <source>Folder</source>
-        <translation>文件夹文件夹</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/yestylesettings.ui" line="303"/>
+        <location filename="../../dialogs/yestylesettings.ui" line="303"/>
         <source>File</source>
-        <translation>文件</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/yestylesettings.ui" line="319"/>
+        <location filename="../../dialogs/yestylesettings.ui" line="319"/>
         <source>Row spacing</source>
-        <translation>行间距</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/yestylesettings.ui" line="335"/>
+        <location filename="../../dialogs/yestylesettings.ui" line="335"/>
         <source>Misc.</source>
-        <translation>杂项</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/yestylesettings.ui" line="370"/>
+        <location filename="../../dialogs/yestylesettings.ui" line="370"/>
         <source>Separator</source>
-        <translation>分隔条</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/yestylesettings.ui" line="377"/>
-        <location filename="../../src/yestylesettings.ui" line="600"/>
+        <location filename="../../dialogs/yestylesettings.ui" line="377"/>
+        <location filename="../../dialogs/yestylesettings.ui" line="600"/>
         <source>Foreground</source>
-        <translation>前景色</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/yestylesettings.ui" line="387"/>
-        <location filename="../../src/yestylesettings.ui" line="539"/>
+        <location filename="../../dialogs/yestylesettings.ui" line="387"/>
+        <location filename="../../dialogs/yestylesettings.ui" line="539"/>
         <source>Background</source>
-        <translation>背景色</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/yestylesettings.ui" line="419"/>
+        <location filename="../../dialogs/yestylesettings.ui" line="419"/>
         <source>Bookmark item</source>
-        <translation>书签项</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/yestylesettings.ui" line="426"/>
+        <location filename="../../dialogs/yestylesettings.ui" line="426"/>
         <source>Color</source>
-        <translation>颜色</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/yestylesettings.ui" line="436"/>
+        <location filename="../../dialogs/yestylesettings.ui" line="436"/>
         <source>Spacing</source>
-        <translation>空白</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/yestylesettings.ui" line="529"/>
+        <location filename="../../dialogs/yestylesettings.ui" line="529"/>
         <source>User</source>
-        <translation>用户</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/yestylesettings.ui" line="555"/>
+        <location filename="../../dialogs/yestylesettings.ui" line="555"/>
         <source>Group</source>
-        <translation>组</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/yestylesettings.ui" line="568"/>
+        <location filename="../../dialogs/yestylesettings.ui" line="568"/>
         <source>Date</source>
-        <translation>日期</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/yestylesettings.ui" line="587"/>
+        <location filename="../../dialogs/yestylesettings.ui" line="587"/>
         <source>Size</source>
-        <translation>尺寸</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/yestylesettings.ui" line="610"/>
+        <location filename="../../dialogs/yestylesettings.ui" line="610"/>
         <source>Filename</source>
-        <translation>文件名</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/yestylesettings.ui" line="639"/>
+        <location filename="../../dialogs/yestylesettings.ui" line="639"/>
         <source>Time</source>
-        <translation>时间</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/yestylesettings.ui" line="678"/>
+        <location filename="../../dialogs/yestylesettings.ui" line="678"/>
         <source>Font size</source>
-        <translation>字体大小</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/yestylesettings.ui" line="691"/>
+        <location filename="../../dialogs/yestylesettings.ui" line="691"/>
         <source>Font name</source>
-        <translation>字体名称</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/yestylesettings.ui" line="704"/>
+        <location filename="../../dialogs/yestylesettings.ui" line="704"/>
         <source>Permission</source>
-        <translation>权限</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/yestylesettings.ui" line="720"/>
+        <location filename="../../dialogs/yestylesettings.ui" line="720"/>
         <source>Color set on file information</source>
-        <translation>文件信息颜色集</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/yestylesettings.ui" line="727"/>
+        <location filename="../../dialogs/yestylesettings.ui" line="727"/>
         <source>Use window background</source>
-        <translation>使用窗口背景</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/yestylesettings.ui" line="763"/>
+        <location filename="../../dialogs/yestylesettings.ui" line="763"/>
         <source>Test</source>
-        <translation>测试</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>UserBmkDlg</name>
     <message>
-        <location filename="../../src/yeuserbmkdlg.ui" line="14"/>
+        <location filename="../../dialogs/yeuserbmkdlg.ui" line="14"/>
         <source>Edit bookmark</source>
-        <translation>编辑书签</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/yeuserbmkdlg.ui" line="20"/>
+        <location filename="../../dialogs/yeuserbmkdlg.ui" line="20"/>
         <source>Title:</source>
-        <translation>标题：</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/yeuserbmkdlg.ui" line="30"/>
+        <location filename="../../dialogs/yeuserbmkdlg.ui" line="30"/>
         <source>Path:</source>
-        <translation>路径：</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>UserBmkModel</name>
     <message>
-        <location filename="../../src/yeuserbmkmodel.cpp" line="106"/>
+        <location filename="../../appui/yeuserbmkmodel.cpp" line="110"/>
         <source>Separator</source>
-        <translation>分隔条</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/yeuserbmkmodel.cpp" line="156"/>
+        <location filename="../../appui/yeuserbmkmodel.cpp" line="160"/>
         <source>Insert Separator</source>
-        <translation>插入分隔条</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/yeuserbmkmodel.cpp" line="171"/>
+        <location filename="../../appui/yeuserbmkmodel.cpp" line="175"/>
         <source>Edit</source>
-        <translation>编辑</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/yeuserbmkmodel.cpp" line="172"/>
+        <location filename="../../appui/yeuserbmkmodel.cpp" line="176"/>
         <source>Edit item</source>
-        <translation>编辑项目</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/yeuserbmkmodel.cpp" line="173"/>
+        <location filename="../../appui/yeuserbmkmodel.cpp" line="177"/>
         <source>Remove</source>
-        <translation>移除</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/yeuserbmkmodel.cpp" line="174"/>
+        <location filename="../../appui/yeuserbmkmodel.cpp" line="178"/>
         <source>Remove item</source>
-        <translation>移除项目</translation>
-    </message>
-</context>
-<context>
-    <name>YeFilePane</name>
-    <message>
-        <location filename="../../src/yefilepane.cpp" line="167"/>
-        <source>Add tab</source>
-        <translation>新标签页</translation>
-    </message>
-    <message>
-        <location filename="../../src/yefilepane.cpp" line="168"/>
-        <source>Delete tab</source>
-        <translation>删除当前标签页</translation>
-    </message>
-    <message>
-        <location filename="../../src/yefilepane.cpp" line="171"/>
-        <source>Toggle 2 panes</source>
-        <translation>切换单/双面板</translation>
-    </message>
-    <message>
-        <location filename="../../src/yefilepane.cpp" line="103"/>
-        <source>Bookmark List</source>
-        <translation>书签列表</translation>
-    </message>
-    <message>
-        <location filename="../../src/yefilepane.cpp" line="104"/>
-        <source>Mounted Devices</source>
-        <translation>已挂载设备</translation>
-    </message>
-    <message>
-        <location filename="../../src/yefilepane.cpp" line="105"/>
-        <source>File System</source>
-        <translation>文件系统</translation>
-    </message>
-    <message>
-        <location filename="../../src/yefilepane.cpp" line="108"/>
-        <source>Toggle list/details mode</source>
-        <translation>切换 列表/明细 视图模式</translation>
-    </message>
-    <message>
-        <location filename="../../src/yefilepane.cpp" line="115"/>
-        <source>Toggle Hidden Files</source>
-        <translation>显示隐藏文件</translation>
-    </message>
-    <message>
-        <location filename="../../src/yefilepane.cpp" line="116"/>
-        <source>Refresh</source>
-        <translation>刷新</translation>
-    </message>
-    <message>
-        <location filename="../../src/yefilepane.cpp" line="117"/>
-        <source>Go Up</source>
-        <translation>向上</translation>
-    </message>
-    <message>
-        <location filename="../../src/yefilepane.cpp" line="119"/>
-        <source>Open Terminal...</source>
-        <translation>打开命令行终端...</translation>
-    </message>
-    <message>
-        <location filename="../../src/yefilepane.cpp" line="225"/>
-        <source>Clear</source>
-        <translation>清除</translation>
-    </message>
-    <message>
-        <location filename="../../src/yefilepane.cpp" line="230"/>
-        <source>Toggle Path Edit</source>
-        <translation>切换路径编辑</translation>
-    </message>
-    <message>
-        <location filename="../../src/yefilepane.cpp" line="238"/>
-        <source>Style settings...</source>
-        <translation>配置外观样式...</translation>
-    </message>
-    <message>
-        <location filename="../../src/yefilepane.cpp" line="239"/>
-        <source>Mime open settings...</source>
-        <translation>配置mime关联程序...</translation>
-    </message>
-    <message>
-        <location filename="../../src/yefilepane.cpp" line="240"/>
-        <source>Custom open settings...</source>
-        <translation>配置自定义关联程序...</translation>
-    </message>
-    <message>
-        <location filename="../../src/yefilepane.cpp" line="378"/>
-        <source>Path not exests:</source>
-        <translation>路径不存在：</translation>
-    </message>
-    <message>
-        <location filename="../../src/yefilepane.cpp" line="237"/>
-        <source>Settings...</source>
-        <translation>设置...</translation>
-    </message>
-    <message>
-        <location filename="../../src/yefilepane.cpp" line="244"/>
-        <source>Menu</source>
-        <translation>菜单</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

@@ -1,8 +1,12 @@
 
 file searching
-history navigation
 root permission handling
 path map (something like mind map to better organise bookmarks)
 dnd inquiry
 command box
 script dialog
+mount/umount/automount
+Different colours for hidden folders
+default app for mime-type
+custom folder icon
+improve icon loader

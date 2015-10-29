@@ -1,12 +1,5 @@
 
-design.txt
-thinking.md
-scrot-*
-*.xcf
-z
-mimetypes.pro
 build-ide.pri
-mkloc.sh
 
 # Compiled Object files
 *.slo

@@ -1,1 +1,9 @@
 
+0.2 Oct-29-2015
+
+- restructure code in multiple subdirs
+- add module dirmodel to replace QFileSystemModel
+- add module udev to monitor mountable devices (mount/umount not finished yet)
+- rewrite copy&paste part, with new feature to solve conflict
+- add history view
+- others: fixed statusbar, sidebar state restore...

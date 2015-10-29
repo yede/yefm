@@ -1,6 +1,4 @@
 
-D_DATA_DIR  = /usr/share/yefm
-
 DESTDIR     = bin
 OBJECTS_DIR = build
 MOC_DIR     = $${OBJECTS_DIR}

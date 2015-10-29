@@ -5,7 +5,6 @@
         <file alias="list-add">img-16/list-add.png</file>
         <file alias="list-remove">img-16/list-remove.png</file>
         <file alias="utilities-terminal">img-16/terminal.png</file>
-        <file alias="view-hidden">img-16/hidden.png</file>
         <file alias="folder">img-16/folder.png</file>
         <file alias="go-home">img-16/go-home.png</file>
         <file alias="go-next">img-16/go-next.png</file>
@@ -35,7 +34,6 @@
         <file alias="preferences-desktop-theme">img-16/preferences-desktop-theme.png</file>
         <file alias="application-x-executable">img-16/application-x-executable.png</file>
         <file alias="text-x-generic">img-16/text-x-generic.png</file>
-        <file alias="bookmarks">img-16/bookmarks.png</file>
         <file alias="view-list-details">img-16/view-list-details.png</file>
         <file alias="view-list-icons">img-16/view-list-icons.png</file>
         <file alias="view-list-text">img-16/view-list-text.png</file>
@@ -44,6 +42,22 @@
         <file alias="mouse">img-16/mouse.png</file>
         <file alias="gtk-edit">img-16/gtk-edit.png</file>
         <file alias="unknown">img-16/unknown.png</file>
+        <file alias="abort">img-16/abort.png</file>
+        <file alias="start">img-16/start.png</file>
+        <file alias="error">img-16/error.png</file>
+        <file alias="ok">img-16/ok.png</file>
+        <file alias="drive-harddisk-usb">img-16/drive-harddisk-usb.png</file>
+        <file alias="usb">img-16/usb.png</file>
+        <file alias="usb-stick">img-16/usb-stick.png</file>
+        <file alias="history-folder">img-16/history-folder.png</file>
+        <file alias="history-item">img-16/history-item.png</file>
+        <file alias="eye">img-16/eye.png</file>
+        <file alias="history-time">img-16/history-time.png</file>
+        <file alias="sync">img-16/sync.png</file>
+        <file alias="point-up">img-16/point-up.png</file>
+        <file alias="bookmark-book">img-16/bookmark-book.png</file>
+        <file alias="bookmark-item">img-16/bookmark-item.png</file>
+        <file alias="tags">img-16/tags.png</file>
     </qresource>
     <qresource prefix="/22">
         <file alias="view-split-top-bottom">img-22/view-split-top-bottom.png</file>
@@ -51,7 +65,6 @@
         <file alias="list-add">img-22/list-add.png</file>
         <file alias="list-remove">img-22/list-remove.png</file>
         <file alias="utilities-terminal">img-22/terminal.png</file>
-        <file alias="view-hidden">img-22/hidden.png</file>
         <file alias="folder">img-22/folder.png</file>
         <file alias="go-home">img-22/go-home.png</file>
         <file alias="go-next">img-22/go-next.png</file>
@@ -81,7 +94,6 @@
         <file alias="preferences-desktop-theme">img-22/preferences-desktop-theme.png</file>
         <file alias="application-x-executable">img-22/application-x-executable.png</file>
         <file alias="text-x-generic">img-22/text-x-generic.png</file>
-        <file alias="bookmarks">img-22/bookmarks.png</file>
         <file alias="view-list-details">img-22/view-list-details.png</file>
         <file alias="view-list-icons">img-22/view-list-icons.png</file>
         <file alias="view-list-text">img-22/view-list-text.png</file>
@@ -90,6 +102,22 @@
         <file alias="mouse">img-22/mouse.png</file>
         <file alias="gtk-edit">img-22/gtk-edit.png</file>
         <file alias="unknown">img-22/unknown.png</file>
+        <file alias="abort">img-22/abort.png</file>
+        <file alias="start">img-22/start.png</file>
+        <file alias="error">img-22/error.png</file>
+        <file alias="ok">img-22/ok.png</file>
+        <file alias="drive-harddisk-usb">img-22/drive-harddisk-usb.png</file>
+        <file alias="usb">img-22/usb.png</file>
+        <file alias="usb-stick">img-22/usb-stick.png</file>
+        <file alias="history-folder">img-22/history-folder.png</file>
+        <file alias="history-item">img-22/history-item.png</file>
+        <file alias="eye">img-22/eye.png</file>
+        <file alias="history-time">img-22/history-time.png</file>
+        <file alias="sync">img-22/sync.png</file>
+        <file alias="point-up">img-22/point-up.png</file>
+        <file alias="bookmark-book">img-22/bookmark-book.png</file>
+        <file alias="bookmark-item">img-22/bookmark-item.png</file>
+        <file alias="tags">img-22/tags.png</file>
     </qresource>
     <qresource prefix="/">
         <file alias="file-manager">imgs/file-manager.png</file>
@@ -98,5 +126,10 @@
         <file alias="close">imgs/close.png</file>
         <file alias="exclamation">imgs/exclamation.png</file>
         <file alias="emblem-symbolic-link">imgs/emblem-symbolic-link.png</file>
+        <file alias="option-selected">imgs/option-selected.png</file>
+        <file alias="option-unselect">imgs/option-unselect.png</file>
+        <file alias="down-16">imgs/down-16.png</file>
+        <file alias="help-16">imgs/help-16.png</file>
+        <file alias="close-blue">imgs/close-blue.png</file>
     </qresource>
 </RCC>
