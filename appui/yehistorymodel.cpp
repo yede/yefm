@@ -95,27 +95,29 @@ void HistoryModel::addPath(const QString &path)
 	if (path.isEmpty() || m_skip) return;
 
 	QList<TreeNode *> &list = m_rootNode->children();
-	int i, cnt = list.size();
+	int max, i = list.size();
 
-	for (i = 0; i < cnt; i++) {
+	if (i > 0) {
+		TreeNode *node = list.at(0);
+		if (node->path() == path) return;		// no waste of time if present at 0
+	}
+
+	while (i > 1) {
+		i--;
 		TreeNode *node = list.at(i);
 		if (node->path() == path) {
-			if (i == 0) return;		// already present
-
 			beginRemoveRows(QModelIndex(), i, i);
 			m_rootNode->removeChild(node);
 			endRemoveRows();
-
-			cnt --;
-			break;
 		}
 	}
 
-	int max = AppCfg::instance()->maxHistory;
+	i = list.size();
+	max = AppCfg::instance()->maxHistory;
 //	if (max < 20) max = 20; else if (max > 2000) max = 2000;
 
-	while (cnt >= max) {
-		i = cnt - 1;
+	while (i > 0 && i >= max) {
+		i--;
 		TreeNode *node = list.at(i);
 		beginRemoveRows(QModelIndex(), i, i);
 		m_rootNode->removeChild(node);
