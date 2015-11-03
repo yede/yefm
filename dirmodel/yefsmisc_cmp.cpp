@@ -390,6 +390,11 @@ int FsMisc::compareFileName(const QString &s1, const QString &s2)
 					ushort v2 = ucs->gbkCode(c2);
 					if (v1 > 0 && v2 > 0) return v1 > v2 ? 1 : -1;	// sort by spell
 				}
+				ushort l1 = c1.toLower().unicode();
+				ushort l2 = c2.toLower().unicode();
+				if (l1 != l2) {
+					return l1 > l2 ? 1 : -1;
+				}
 				return u1 > u2 ? 1 : -1;
 			}
 			continue;
