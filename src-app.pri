@@ -6,6 +6,7 @@ HEADERS += \
 	app/yedbus.h \
 	app/yeiconcache.h \
 	app/yeiconloader.h \
+	app/yeicontheme.h \
 	app/yestyle.h \
 	app/yeshortcuts.h \
 	app/yesessiondata.h
@@ -16,6 +17,7 @@ SOURCES += \
 	app/yedbus.cpp \
 	app/yeiconcache.cpp \
 	app/yeiconloader.cpp \
+	app/yeicontheme.cpp \
 	app/yestyle.cpp \
 	app/yeshortcuts.cpp \
 	app/yesessiondata.cpp

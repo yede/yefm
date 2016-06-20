@@ -4,6 +4,7 @@
 
 #include "yeiconcache.h"
 #include "yeiconloader.h"
+#include "yeicontheme.h"
 #include "yeappcfg.h"
 #include "yeapp.h"
 
@@ -76,20 +77,19 @@ IconLoader::IconLoader()
 	, m_aliasReady(false)
 	, m_themePathReady(false)
 {
+	m_theme  = new IconTheme();
+
 	iconLogo = QIcon(":/file-manager");
 	iconNone = QIcon(":/exclamation");
 	pixSep   = QPixmap(":/sep17");
 	pixNone  = QPixmap(":/exclamation");
 
 	m_pixmaps.insert("clear", QPixmap(":/close"));
+}
 
-	m_exts  << "png" << "svg" << "xpm";
-
-	m_dirs  << "actions" << "categories" << "apps" << "places" << "devices" << "mimetypes" << "status"
-			<< "animations" << "emblems" << "emotes"
-			<< "extras" << "stock";
-
-	m_mimeDirs << "places" << "mimetypes" << "devices" << "actions" << "categories" << "apps" << "status";
+IconLoader::~IconLoader()
+{
+	delete m_theme;
 }
 
 void IconLoader::reset()
@@ -102,7 +102,7 @@ void IconLoader::reset()
 	m_icons16.clear();
 	m_icons22.clear();
 
-	initThemePaths();
+	m_theme->setupPathList(m_cfg->iconTheme, m_cfg->iconSize);
 	loadIconAliases();
 }
 //==============================================================================================================================
@@ -120,18 +120,18 @@ const QIcon &IconLoader::getIcon(int size, const QString &name)
 
 		if (aliases.isEmpty()) {
 			ok = searchThemeIcon(icon, size, name, IconSearchMode::AppIcon);
-		//	qDebug() << "getIcon(): aliases.isEmpty():" << size << name << ok;
+		//	qDebug() << "getIcon().1: aliases.isEmpty():" << size << name << ok;
 		} else {
 			foreach (const QString &alias, aliases) {
 				ok = searchThemeIcon(icon, size, alias, IconSearchMode::AppIcon);
-		//		qDebug() << "getIcon(): alias:" << ok << size << alias;
+			//	qDebug() << "getIcon().2: alias:" << ok << size << alias;
 				if (ok) break;
 			}
 		}
 
 		if (!ok) {
 			icon = getDefaultIcon(size, name);
-		//	qDebug() << "getIcon(): getDefaultIcon():" << size << name;
+		//	qDebug() << "getIcon().3: getDefaultIcon():" << size << name;
 		}
 
 		icons.insert(name, icon);
@@ -222,98 +222,6 @@ void IconLoader::saveIconAliases()
 }
 //==============================================================================================================================
 
-void IconLoader::initThemePaths()
-{
-	m_themePathReady = true;
-
-	getValidIconTheme(m_themeTypes, m_themePaths, m_cfg->iconTheme);
-}
-
-bool IconLoader::getValidIconTheme(QList<int> &types, QStringList &paths, const QString &iconTheme)
-{
-	QString basePath = "/usr/share/icons";
-	QString path = QString("%1/%2").arg(basePath).arg(iconTheme);
-
-	types.clear();
-	paths.clear();
-
-	if (!QDir(path).exists()) {
-		qDebug() << "getValidIconTheme(): theme-path not found:" << path;
-		return false;
-	}
-
-	QDirIterator it(basePath, QDir::Dirs | QDir::NoDotAndDotDot);
-	QString mainPath;
-
-	while (it.hasNext()) {
-		it.next();
-		if (it.fileInfo().isDir()) {
-			QString dirName = it.fileName();
-			if (dirName != iconTheme) {
-				if (iconTheme.startsWith(dirName)) {
-					int i = 0;
-					int n = it.filePath().length();
-					foreach (QString path, paths) {
-						if (path.length() < n) break;
-						i++;
-					}
-					paths.insert(i, it.filePath());
-				}
-			} else {
-				mainPath = it.filePath();
-			}
-		}
-	}
-
-	if (!mainPath.isEmpty()) {
-		paths.insert(0, mainPath);
-	}
-
-	int n = paths.size();
-	QStringList dirs;
-	dirs << "actions" << "places" << "app" << "categories" << "devices" << "extras" << "status" << "stock";
-//	qDebug() << "\ngetValidIconTheme():" << paths;
-
-	for (int i = 0; i < n; i++)
-	{
-		int type = IconThmemType::Unknown;
-		bool found = false;
-
-		for (int t = IconThmemType::SizeStart; t <= IconThmemType::SizeEnd; t++)
-		{
-			for (int d = 0; d < dirs.size(); d++) {
-				path = (t == IconThmemType::SizeStart) ? QString("%1/16x16/%2").arg(paths.at(i)).arg(dirs.at(d))
-													   : QString("%1/%2/16").arg(paths.at(i)).arg(dirs.at(d));
-				if (QDir(path).exists()) {
-				//	qDebug() << "getValidIconTheme(): OK!" << t << path;
-					found = true; type = t; break;
-			//	} else {
-			//		qDebug() << "getValidIconTheme(): ---" << t << path;
-				}
-			}
-			if (found) break;
-		}
-
-		types.append(type);
-	}
-
-	int i = 0;
-	while (i < n) {
-		if (types.at(i) == IconThmemType::Unknown) {
-			types.removeAt(i);
-			paths.removeAt(i);
-			n--;
-		} else {
-			i++;
-		}
-	}
-
-//	qDebug() << "getValidIconTheme():" << types << paths;
-
-	return paths.size() > 0;
-}
-//==============================================================================================================================
-
 bool IconLoader::searchThemeIcon(QIcon &icon, int size, const QString &name, int mode)
 {
 	if (name.isEmpty()) return false;
@@ -325,65 +233,14 @@ bool IconLoader::searchThemeIcon(QIcon &icon, int size, const QString &name, int
 		return true;
 	}
 
-	int n = m_themePaths.size();
-	if (m_themeTypes.size() != n) return false;
-
-	for (int i = 0; i < n; i++) {
-		QString path = m_themePaths.at(i);
-		int type = m_themeTypes.at(i);
-		if (searchIconDirs(icon, size, name, path, type, mode)) {
-			icons.insert(name, icon);
-			return true;
-		}
+	if (m_theme->findIcon(icon, size, name, mode)) {
+		icons.insert(name, icon);
+		return true;
 	}
 
-	return false;
-}
-
-bool IconLoader::searchIconDirs(QIcon &icon, int size, const QString &name, const QString &path, int type, int mode)
-{
-	bool flag = (type == IconThmemType::SizeStart);
-	QString dest;
-	QStringList &dirs = (mode == IconSearchMode::MimeIcon) ? m_mimeDirs : m_dirs;
-
-	foreach (QString dir, dirs) {
-		dest = flag ? QString("%1/%2x%2/%3").arg(path).arg(size).arg(dir)
-					: QString("%1/%2/%3").arg(path).arg(dir).arg(size);
-		if (QDir(dest).exists() && searchIconExts(icon, name, dest)) return true;
-	}
-
-	foreach (QString dir, dirs) {
-		dest = flag ? QString("%1/scalable/%2").arg(path).arg(dir)
-					: QString("%1/%2/scalable").arg(path).arg(dir);
-		if (QDir(dest).exists() && searchIconExts(icon, name, dest)) return true;
-	}
-
-	return false;
-}
-
-bool IconLoader::searchIconExts(QIcon &icon, const QString &name, const QString &path)
-{
-	foreach (QString ext, m_exts) {
-		QString file = QString("%1/%2.%3").arg(path).arg(name).arg(ext);
-		if (QFile(file).exists()) {
-			icon = QIcon(file);
-			if (!icon.isNull()) {
-			//	qDebug() << "searchIconExts(): found:" << file;
-				return true;
-			}
-		}
-	}
-
-//	qDebug() << "searchIconExts(): not found:" << name << path;
 	return false;
 }
 //==============================================================================================================================
-
-void IconLoader::resizeIcon(QIcon &icon, int size)
-{
-	QPixmap pixmap = icon.pixmap(size, size);
-	icon = QIcon(pixmap);
-}
 
 bool IconLoader::buildIconFromFile(QIcon &icon, int size, const QString &file)
 {
@@ -413,13 +270,13 @@ bool IconLoader::searchIconByName(QIcon &icon, int size, const QString &name)
 	}
 
 	if (searchThemeIcon(icon, size, name, IconSearchMode::AppIcon)) {
-		resizeIcon(icon, size);
+		IconTheme::resizeIcon(icon, size);
 		return true;
 	}
 
 	icon = QIcon::fromTheme(name);
 	if (!icon.isNull()) {
-		resizeIcon(icon, size);
+		IconTheme::resizeIcon(icon, size);
 		return true;
 	}
 
@@ -459,7 +316,7 @@ bool IconLoader::searchAppIcon(QIcon &icon, int size, const DesktopFile &app)
 	icon = QIcon::fromTheme(name);
 	if (!icon.isNull()) {
 		int size = IconLoader::cfg()->menuIconSize;
-		resizeIcon(icon, size);
+		IconTheme::resizeIcon(icon, size);
 		return icon;
 	}*/
 

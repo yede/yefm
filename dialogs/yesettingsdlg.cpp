@@ -6,6 +6,7 @@
 #include "ui_yesettingsdlg.h"
 
 #include "yeappcfg.h"
+#include "yeicontheme.h"
 #include "yeiconloader.h"
 //==============================================================================================================================
 
@@ -239,10 +240,8 @@ void SettingsDlg::onCurrentItemChanged(QListWidgetItem *curr, QListWidgetItem *)
 	if (!m_ready) return;
 
 	if (curr) {
-		QList<int> types;
-		QStringList paths;
 		QString theme = curr->text();
-		if (IconLoader::getValidIconTheme(types, paths, theme)) {
+		if (IconTheme::isValid(theme)) {
 			m_cfg->iconTheme = curr->text();
 			emit changeIconTheme();
 		}

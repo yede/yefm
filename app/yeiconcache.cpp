@@ -71,6 +71,7 @@ void IconCache::loadIconCache()
 
 	m_mimeIcons.clear();
 	m_folderIcons.clear();
+	qDebug() << "loadIconCache(): destDir=" << destDir;
 
 	QFile fileIcons(destDir + MIME_CACHE_FILE);			// Loads cached mime icons
 	if (fileIcons.open(QIODevice::ReadOnly)) {
@@ -240,6 +241,7 @@ QVariant IconCache::findIcon(const QString &path)
 	if (m_mimeIcons.contains(suffix)) {
 		icon = m_mimeIcons.value(suffix);
 		if (isSymLink) drawSymbolicLink(icon);
+	//	qDebug() << "findIcon().contains():" << suffix << m_mimeIcons.size();
 		return icon;
 	}
 
@@ -251,8 +253,7 @@ QVariant IconCache::findIcon(const QString &path)
 			if (isSymLink) drawSymbolicLink(icon);
 			return icon;
 		}
-		icon = m_loader->icon(info.isExecutable() ? "application-x-executable"
-										   : "text-x-generic");
+		icon = m_loader->icon(info.isExecutable() ? "application-x-executable" : "text-x-generic");
 	} else {
 		if (m_mimeGlob.count() == 0) loadMimeTypes();
 
@@ -267,7 +268,7 @@ QVariant IconCache::findIcon(const QString &path)
 
 		if (name.endsWith(".ms-word")) {
 			tmp = "x-office-document";
-	//		qDebug() << "findIcon().1:" << tmp;
+		//	qDebug() << "findIcon().1:" << tmp;
 			if (m_loader->findMimeIcon(icon, tmp)) goto done;
 		}
 
@@ -275,11 +276,11 @@ QVariant IconCache::findIcon(const QString &path)
 			n = name.indexOf(sep);
 			if (n > 0) {
 				tmp = name.left(n);
-	//			qDebug() << "findIcon().2:" << tmp;
+			//	qDebug() << "findIcon().2:" << tmp;
 				if (m_loader->findMimeIcon(icon, tmp)) goto done;
 
 				tmp = tmp + "-x-generic";
-	//			qDebug() << "findIcon().3:" << tmp;
+			//	qDebug() << "findIcon().3:" << tmp;
 				if (m_loader->findMimeIcon(icon, tmp)) goto done;
 			}
 		}
@@ -307,6 +308,7 @@ text:
 	}
 
 done:
+//	qDebug("findIcon().insert: size=%d, suffix=%s", m_mimeIcons.size(), qPrintable(suffix));
 	m_mimeIcons.insert(suffix, icon);
 	if (isSymLink) drawSymbolicLink(icon);
 	return icon;
@@ -327,6 +329,7 @@ void IconCache::loadMimeTypes()
 				m_mimeGlob.insert(suffix, mimeName);
 			}
 		} while (!out.atEnd());
+	//	qDebug("loadMimeTypes(): mimeGlob.size=%d", m_mimeGlob.size());
 		mimeInfo.close();
 	}
 
@@ -342,6 +345,7 @@ void IconCache::loadMimeTypes()
 				m_mimeGeneric.insert(mimeName, icon);
 			}
 		} while (!out.atEnd());
+	//	qDebug("loadMimeTypes(): mimeGeneric.size=%d", m_mimeGeneric.size());
 		mimeInfo.close();
 	}
 }

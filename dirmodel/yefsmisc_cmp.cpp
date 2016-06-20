@@ -102,7 +102,7 @@ static int ucstrncmp(const QChar *a, const QChar *b, int l)
 			       - reinterpret_cast<const QChar *>(ptr + distance + idx)->unicode();
 		}
 	}
-#  if defined(Q_COMPILER_LAMBDA) && !defined(__OPTIMIZE_SIZE__)
+#  if defined(Q_COMPILER_LAMBDA) && !defined(__OPTIMIZE_SIZE__) && 0
 	const auto &lambda = [ = ](int i) -> int {
 		return reinterpret_cast<const QChar *>(ptr)[i].unicode()
 		- reinterpret_cast<const QChar *>(ptr + distance)[i].unicode();
