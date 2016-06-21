@@ -30,6 +30,7 @@ PasteTask::PasteTask(const QStringList &srcFiles, const QString &destFolder, int
 	, m_type(type)
 	, m_busy(false)
 	, m_show(false)
+	, m_ready(false)
 	, m_srcFiles(srcFiles)
 	, m_destFolder(destFolder)
 	, m_iconSelected(":/option-selected")
@@ -64,6 +65,8 @@ void PasteTask::closeTask()
 
 void PasteTask::setupView()
 {
+	if (m_ready) return;
+
 	m_view = new PasteView(this);
 	m_model = new PasteModel(m_view, m_root);
 
@@ -215,6 +218,8 @@ void PasteTask::setupView()
 		case PasteType::Copy: m_lbOperType->setText(tr("<b>Copy</b>")); break;
 		case PasteType::Move: m_lbOperType->setText(tr("<b>Move</b>")); break;
 	}
+
+	m_ready = true;
 }
 //==============================================================================================================================
 
@@ -366,11 +371,6 @@ void PasteTask::addItems(const QStringList &srcFiles, const QString &destFolder,
 			item->setConflict(conflict);
 		}
 	}
-}
-
-bool PasteTask::isBusy() const
-{
-	return m_busy;
 }
 
 bool PasteTask::hasConflict() const

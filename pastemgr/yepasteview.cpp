@@ -1,5 +1,6 @@
 #include <QHeaderView>
 #include <QMouseEvent>
+#include <QDebug>
 
 #include "yepasteview.h"
 #include "yepastemodel.h"
@@ -119,6 +120,11 @@ void PasteView::resizeEvent(QResizeEvent *)
 void PasteView::selectionChanged(const QItemSelection &selected, const QItemSelection &deselected)
 {
 	QTreeView::selectionChanged(selected, deselected);
+
+	if (!m_task->isReady()) {
+	//	qDebug() << "!m_task->isReady()";
+		return;
+	}
 
 	QModelIndexList list = selected.indexes();
 	PasteItem *item = NULL;

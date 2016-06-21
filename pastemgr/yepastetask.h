@@ -39,8 +39,10 @@ public:
 
 	const QStringList &srcFiles()   const { return m_srcFiles; }
 	const QString     &destFolder() const { return m_destFolder; }
-	int                type()       const { return m_type; }
-	bool isBusy() const;
+
+	int  type()    const { return m_type; }
+	bool isBusy()  const { return m_busy; }
+	bool isReady() const { return m_ready; }
 
 	QString taskName();
 
@@ -89,8 +91,7 @@ private:
 	int          m_type;			// PasteMode: Copy, Move, Copy-folder-structure
 	bool         m_busy;
 	bool         m_show;
-
-	bool dummy_2, dummy_3, dummy_4, dummy_5, dummy_6, dummy_7;
+	bool         m_ready, dummy_3;
 
 	QTime        m_remainingTimer;
 	qint64       m_totalBytes;
