@@ -1,7 +1,7 @@
 #ifndef YEFILEPANE_H
 #define YEFILEPANE_H
 
-#include <QWidget>
+#include <QtWidgets/QWidget>
 //==============================================================================================================================
 
 class QMenu;
